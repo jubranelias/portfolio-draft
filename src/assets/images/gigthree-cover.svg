@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="ggigthree-cover" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lgigthree-cover" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#2f4bff"/>
+<g transform="rotate(-6 640 533.5)">
+      <rect x="480" y="205.5" width="320" height="656" rx="51.2" fill="#151515"/>
+      <rect x="490" y="215.5" width="300" height="636" rx="41.6" fill="#ffffff"/>
+      <rect x="524.8" y="284.22" width="192" height="32.800000000000004" rx="4" fill="#1d1c1a"/>
+      <rect x="524.8" y="362.94" width="230.39999999999998" height="196.79999999999998" rx="12" fill="#1d1c1a" fill-opacity=".3"/>
+      <rect x="524.8" y="599.0999999999999" width="230.39999999999998" height="52.480000000000004" rx="10" fill="#1d1c1a" fill-opacity=".6"/>
+      <rect x="524.8" y="677.8199999999999" width="230.39999999999998" height="52.480000000000004" rx="10" fill="#1d1c1a" fill-opacity=".35"/></g><g transform="rotate(5 1040 576.1800000000001)">
+      <rect x="880" y="248.18" width="320" height="656" rx="51.2" fill="#151515"/>
+      <rect x="890" y="258.18" width="300" height="636" rx="41.6" fill="#ffffff"/>
+      <rect x="924.8" y="326.9" width="192" height="32.800000000000004" rx="4" fill="#1d1c1a"/>
+      <rect x="924.8" y="405.62" width="230.39999999999998" height="196.79999999999998" rx="12" fill="#1d1c1a" fill-opacity=".3"/>
+      <rect x="924.8" y="641.78" width="230.39999999999998" height="52.480000000000004" rx="10" fill="#1d1c1a" fill-opacity=".6"/>
+      <rect x="924.8" y="720.5" width="230.39999999999998" height="52.480000000000004" rx="10" fill="#1d1c1a" fill-opacity=".35"/></g>
+<rect width="100%" height="100%" fill="url(#lgigthree-cover)"/>
+<rect width="100%" height="100%" filter="url(#ggigthree-cover)"/>
+<text x="1572" y="1041" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="18" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

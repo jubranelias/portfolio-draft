@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="glimelines-cover" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="llimelines-cover" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#d7ff6b"/>
+<rect y="671.7595279610343" width="1600" height="395.24047203896566" fill="#b8e04a"/><ellipse cx="881.2599147558212" cy="683.7595279610343" rx="272" ry="26.675" fill="#000" fill-opacity=".22"/><rect x="705.2599147558212" y="233.61952796103435" width="256" height="448.14" rx="128" fill="#1d1c1a"/>
+         <rect x="922.8599147558213" y="435.28252796103436" width="204.8" height="246.477" rx="102.4" fill="#f4f1ea"/>
+<rect width="100%" height="100%" fill="url(#llimelines-cover)"/>
+<rect width="100%" height="100%" filter="url(#glimelines-cover)"/>
+<text x="1572" y="1041" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="18" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

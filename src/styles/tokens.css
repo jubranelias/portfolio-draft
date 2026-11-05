@@ -1,0 +1,105 @@
+/* ==================================================================
+   DESIGN TOKENS
+   Change brand colours, fonts, radii and spacing here.
+   Every component reads from these variables.
+   ================================================================== */
+:root {
+  /* Colour: light theme (default, matches the reference's soft beige) */
+  --c-bg: #ebe6dd;
+  --c-surface: #f5f2ec;
+  --c-surface-2: #e1dbd0;
+  --c-ink: #141414;
+  --c-ink-soft: #4f4b45;          /* body/description text: softer than ink, 7:1 on the background */
+  --c-muted: #5e5950;             /* 5.5:1 on the background: passes AA for small text */
+  --c-accent-text: #1b8a4b;       /* green for text: 4.6:1 on the background (the bright green is for fills) */
+  --c-line: rgba(20, 20, 20, 0.14);
+  --c-accent: #56e38b;          /* hover fills, focus rings, small highlights */
+  --c-on-accent: #0b2a17;       /* dark text on the green, for contrast */
+  --c-inverse-bg: #141414;      /* buttons, footer wordmark */
+  --c-inverse-ink: #f5f2ec;
+  --c-error: #c2361f;
+  --c-success: #1f7a4f;
+
+  /* Type */
+  --font-display: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --fs-mega: clamp(4.5rem, 22vw, 22rem);   /* footer / studio wordmark */
+  --fs-display: clamp(2.75rem, 8.2vw, 8.5rem);
+  --fs-h1: clamp(2.5rem, 6.2vw, 6.25rem);
+  --fs-h2: clamp(2.125rem, 4.4vw, 4.25rem);
+  --fs-h3: clamp(1.375rem, 2.2vw, 2rem);
+  --fs-lead: clamp(1.375rem, 2.7vw, 2.625rem);
+  --fs-body-l: 1.1875rem;
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+
+  --lh-tight: 0.94;
+  --lh-heading: 1.04;
+  --lh-body: 1.55;
+  --tracking-display: -0.028em;
+  --tracking-heading: -0.018em;
+
+  /* Layout */
+  --container: 1440px;
+  --container-text: 46rem;
+  --gutter: clamp(1rem, 3.2vw, 2.75rem);
+  --section: clamp(5rem, 11vw, 10rem);
+  --section-s: clamp(3rem, 6vw, 5.5rem);
+  --gap: clamp(1rem, 2vw, 1.75rem);
+
+  /* Shape */
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur: 600ms;
+  --dur-slow: 1100ms;
+
+  --nav-h: 76px;
+  color-scheme: light;
+}
+
+/* Dark theme: used when the visitor's system is set to dark.
+   Set data-theme="light" on <html> to force the light theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --c-bg: #181715;
+    --c-surface: #22201d;
+    --c-surface-2: #2c2a26;
+    --c-ink: #efeae1;
+    --c-ink-soft: #bab4a9;
+    --c-muted: #a9a398;
+    --c-accent-text: #6fe09a;
+    --c-line: rgba(239, 234, 225, 0.16);
+    --c-accent: #56e38b;
+    --c-on-accent: #0b2a17;
+    --c-inverse-bg: #efeae1;
+    --c-inverse-ink: #181715;
+    --c-error: #ff8a75;
+    --c-success: #6fd3a2;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --c-bg: #181715;
+  --c-surface: #22201d;
+  --c-surface-2: #2c2a26;
+  --c-ink: #efeae1;
+  --c-ink-soft: #bab4a9;
+  --c-muted: #a9a398;
+  --c-accent-text: #6fe09a;
+  --c-line: rgba(239, 234, 225, 0.16);
+  --c-accent: #56e38b;
+  --c-on-accent: #0b2a17;
+  --c-inverse-bg: #efeae1;
+  --c-inverse-ink: #181715;
+  --c-error: #ff8a75;
+  --c-success: #6fd3a2;
+  color-scheme: dark;
+}

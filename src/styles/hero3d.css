@@ -1,0 +1,257 @@
+/* ==================================================================
+   Hero (Home): eyebrow, headline, supporting text and actions.
+   ================================================================== */
+.h3d {
+  --hero-scroll: 0;
+  position: relative;
+  min-height: max(660px, 100vh);
+  min-height: max(660px, 100svh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Text layer */
+.h3d__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: calc(var(--nav-h) + 3rem);
+  padding-bottom: 2rem;
+  transform: translateY(calc(var(--hero-scroll) * -70px));
+  opacity: calc(1 - var(--hero-scroll) * 1.1);
+  pointer-events: none;
+}
+.h3d__content > * {
+  pointer-events: auto;
+}
+.h3d__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--c-muted);
+  margin-bottom: clamp(1.25rem, 2.4vw, 2rem);
+  animation: h3d-up 900ms var(--ease-out) 100ms both;
+}
+.h3d__title {
+  font-size: clamp(3rem, 6.6vw, 7.75rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  max-width: 62%;
+  text-wrap: balance;
+}
+.h3d__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.12em 0.08em 0.22em;
+  margin: -0.12em -0.08em -0.22em;
+}
+.h3d__word > span {
+  display: inline-block;
+  animation: h3d-word 1200ms var(--ease-out) both;
+  animation-delay: calc(200ms + var(--i) * 75ms);
+}
+.h3d__support {
+  max-width: 34ch;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: var(--fs-body-l);
+  color: var(--c-ink-soft);
+  animation: h3d-up 1000ms var(--ease-out) 750ms both;
+}
+.h3d__ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-top: 2rem;
+  animation: h3d-up 1000ms var(--ease-out) 900ms both;
+}
+.h3d__secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  font-weight: 500;
+}
+.h3d__secondary span {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size 500ms var(--ease-out);
+}
+.h3d__secondary:hover span {
+  background-size: 0 1px;
+  background-position: 100% 100%;
+}
+
+/* Bottom bar: availability and scroll cue */
+.h3d__bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 1.75rem;
+  font-size: var(--fs-small);
+  animation: h3d-up 1000ms var(--ease-out) 1100ms both;
+}
+.h3d__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem 0.45rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--c-surface) 80%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-weight: 500;
+}
+.h3d__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22a35a;
+}
+.h3d__dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22a35a;
+  animation: h3d-pulse 2.4s var(--ease-out) infinite;
+}
+.h3d__scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 44px;
+  color: var(--c-muted);
+}
+.h3d__scroll:hover {
+  color: var(--c-ink);
+}
+.h3d__scroll-line {
+  position: relative;
+  width: 1px;
+  height: 44px;
+  background: var(--c-line);
+  overflow: hidden;
+}
+.h3d__scroll-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 40%;
+  background: var(--c-ink);
+  animation: h3d-scroll 2.2s var(--ease-in-out) infinite;
+}
+
+@keyframes h3d-word {
+  from { transform: translateY(105%); }
+  to { transform: none; }
+}
+@keyframes h3d-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes h3d-pulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  70%, 100% { transform: scale(3); opacity: 0; }
+}
+@keyframes h3d-scroll {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(260%); }
+}
+
+/* Tablet: object stays right, type steps down, text column widens */
+@media (max-width: 1100px) {
+  .h3d__title {
+    max-width: 72%;
+    font-size: clamp(2.75rem, 7.6vw, 5.5rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .h3d {
+    min-height: max(560px, 88svh);
+  }
+  .h3d__content {
+    padding-top: calc(var(--nav-h) + 2.5rem);
+    justify-content: flex-start;
+  }
+  .h3d__title {
+    max-width: none;
+    font-size: clamp(2.5rem, 11.2vw, 3.5rem);
+    letter-spacing: -0.028em;
+  }
+  .h3d__ctas {
+    gap: 1.25rem;
+  }
+  .h3d__bottom {
+    padding-top: 1.5rem;
+    align-items: center;
+  }
+  .h3d__scroll {
+    display: none;
+  }
+}
+
+/* Text links share one style (see "Text links" in components.css): no line at rest,
+   a green line draws in on hover. This file loads last, so the hero and teaser links are set here. */
+.h3d__secondary span,
+.cteaser__link > span:not([aria-hidden]) {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat;
+  padding-bottom: 2px;
+  transition: color 200ms ease, background-size 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.h3d__secondary:hover span,
+.h3d__secondary:focus-visible span,
+.cteaser:hover .cteaser__link > span:not([aria-hidden]),
+.cteaser:focus-visible .cteaser__link > span:not([aria-hidden]) {
+  color: var(--c-accent-text);
+  background-size: 100% 1.5px;
+  background-position: 0 100%;
+}
+.cteaser__link {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Brand accents in the headline */
+.h3d__word--complex > span {
+  font-weight: 300;
+  color: var(--c-muted);
+  letter-spacing: -0.035em;
+}
+.h3d__word--simple > span {
+  color: var(--c-accent-text);
+}
+
+/* Headline and the facts cube share one row: text left, cube right, centred on the headline */
+.h3d__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.h3d__row .h3d__title { flex: 1 1 auto; max-width: 62%; margin: 0; }
+.h3d__row .cube {
+  margin-right: clamp(0.5rem, 3vw, 3rem);
+  animation: h3d-up 900ms var(--ease-out) 900ms both;
+}
+@media (max-width: 1100px) { .h3d__row .h3d__title { max-width: 70%; } }
+/* phones: the headline needs the full width, so the cube steps aside */
+@media (max-width: 760px) {
+  .h3d__row .cube { display: none; }
+  .h3d__row .h3d__title { max-width: none; }
+}

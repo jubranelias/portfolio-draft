@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gcreative-motion" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lcreative-motion" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#7c5cff"/>
+<rect y="592.0431198980659" width="1600" height="307.9568801019341" fill="#5d40e0"/><ellipse cx="923.1830123662949" cy="604.0431198980659" rx="272" ry="22.5" fill="#000" fill-opacity=".22"/><rect x="683.1830123662949" y="502.0431198980659" width="384" height="90" rx="6" fill="#2bd1c4"/><rect x="729.1830123662949" y="412.0431198980659" width="320" height="90" rx="6" fill="#f6d34a"/><rect x="775.1830123662949" y="322.0431198980659" width="255.99999999999997" height="90" rx="6" fill="#2bd1c4"/>
+<rect width="100%" height="100%" fill="url(#lcreative-motion)"/>
+<rect width="100%" height="100%" filter="url(#gcreative-motion)"/>
+<text x="1572" y="874" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="18" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

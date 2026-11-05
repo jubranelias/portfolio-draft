@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="ghero-4" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lhero-4" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#ff8a5b"/>
+<rect y="696.5155161095411" width="1600" height="370.48448389045893" fill="#e56f42"/><ellipse cx="937.3210751414298" cy="708.5155161095411" rx="272" ry="26.675" fill="#000" fill-opacity=".22"/><circle cx="889.3210751414298" cy="491.1155161095411" r="213.4" fill="#2b2b2b"/>
+         <circle cx="1177.4110751414298" cy="608.4855161095411" r="96.03" fill="#f6d34a"/>
+<rect width="100%" height="100%" fill="url(#lhero-4)"/>
+<rect width="100%" height="100%" filter="url(#ghero-4)"/>
+<text x="1572" y="1041" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="18" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

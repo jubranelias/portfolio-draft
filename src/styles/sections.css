@@ -1,0 +1,559 @@
+/* ==================================================================
+   Home page sections (also reused on other pages)
+   ================================================================== */
+
+.section-title {
+  font-size: var(--fs-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-tight);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+.section-title--s {
+  font-size: var(--fs-h2);
+}
+.center-row {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-top: calc(var(--nav-h) + clamp(2.5rem, 8vh, 6rem));
+  overflow: hidden;
+}
+.swap__stage {
+  display: grid;
+}
+.swap__line {
+  grid-area: 1 / 1;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  max-width: 13ch;
+  text-wrap: balance;
+}
+.swap__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.swap__word > span {
+  display: inline-block;
+  transition: transform 900ms var(--ease-out);
+  transition-delay: calc(var(--i) * 70ms);
+}
+.swap__line--current .swap__word > span {
+  transform: none;
+}
+.swap__line--prev .swap__word > span {
+  transform: translateY(-110%);
+  transition-duration: 650ms;
+  transition-timing-function: var(--ease-in-out);
+}
+.swap__line--next .swap__word > span {
+  transform: translateY(110%);
+  transition: none;
+}
+.swap__line--current {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+}
+.hero__intro {
+  font-size: var(--fs-body-l);
+  max-width: 30ch;
+}
+.hero__strip {
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+}
+.hero__track {
+  --h: clamp(200px, 26vw, 400px);
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  list-style: none;
+  padding: 0 var(--gutter);
+  margin: 0;
+  transform: translateX(calc((var(--p, 0.5) - 0.5) * -55vw));
+  will-change: transform;
+}
+.hero__img {
+  height: var(--h);
+  aspect-ratio: 3 / 4;
+  animation: rise 1100ms var(--ease-out) both;
+}
+.hero__img--1 {
+  aspect-ratio: 4 / 3;
+}
+.hero__img--2 {
+  aspect-ratio: 1;
+  align-self: flex-end;
+  height: calc(var(--h) * 0.8);
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18%); }
+  to { opacity: 1; transform: none; }
+}
+.hero__meta {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1.25rem 0;
+  font-size: var(--fs-small);
+  color: var(--c-muted);
+}
+
+/* ---------- Clients ---------- */
+.clients__head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.clients__title {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.02em;
+}
+.clients__intro {
+  max-width: 28ch;
+}
+@media (max-width: 760px) {
+  .clients__head {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ---------- Studio intro (sticky scroll) ---------- */
+.studio__track {
+  --p: 0;
+  position: relative;
+  height: 220vh;
+}
+.studio__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+.studio__sticky {
+  perspective: 1400px;
+}
+/* ---- The 3D J: the logo icon extruded into a solid, turned by scroll ---- */
+.j3d {
+  --mx: 0;
+  --my: 0;
+  /* Scroll choreography: 0 → 1 across the section */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(34vh, 300px, 52vw);
+  aspect-ratio: 222 / 246;
+  translate: -50% -46%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.j3d__float {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: j3d-float 6s ease-in-out infinite;
+}
+.j3d__obj {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  /* rotation, swing and lift are written by StudioIntro (scroll + pointer) */
+  transform: rotateX(14deg) rotateY(-55deg) scale(0.86);
+  will-change: transform;
+}
+.j3d__stack {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  /* Centre the extrusion on the object's middle so it turns around its own axis */
+  transform: translateZ(-26px);
+}
+/* The cap lifts away from the body and tips at the pinch point, then settles back */
+.j3d__stack--cap {
+  transform-origin: 90% 14%;
+  transform: translateZ(-26px);
+}
+.j3d__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  /* 18 layers spread over the same 50px depth as before */
+  transform: translateZ(calc(var(--i) * 2.94px));
+  /* Side walls: deep green at the back, lighter towards the front face */
+  fill: color-mix(in srgb, var(--c-accent) calc(35% + var(--i) / var(--n) * 45%), #0c2a18);
+}
+.j3d__layer--front {
+  fill: var(--c-accent);
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 0.6px;
+  vector-effect: non-scaling-stroke;
+}
+/* Soft floor shadow that breathes with the lift */
+.j3d__shadow {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -14%;
+  height: 10%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.22), transparent);
+  transform: none;
+}
+@keyframes j3d-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .j3d__float { animation: none; }
+  .j3d__obj { transform: rotateX(10deg) rotateY(-24deg); transition: none; }
+  .j3d__stack--cap { transform: translateZ(-26px); }
+  .j3d__shadow { transform: none; opacity: 1; }
+}
+
+.studio__title {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--gutter);
+  font-size: var(--fs-h2);
+  letter-spacing: var(--tracking-display);
+  pointer-events: none;
+  opacity: clamp(0, calc(1 - (var(--p) - 0.35) * 3), 1);
+}
+.studio__a,
+.studio__b {
+  max-width: 6.5em;
+}
+.studio__a {
+  transform: translateX(calc(var(--p) * -20vw));
+}
+.studio__b {
+  text-align: right;
+  transform: translateX(calc(var(--p) * 20vw));
+}
+.studio__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  font-size: var(--fs-small);
+  opacity: calc(1 - var(--p) * 4);
+}
+@media (max-width: 760px) {
+  .studio__track {
+    height: 170vh;
+  }
+  .j3d {
+    width: min(30vh, 58vw);
+  }
+  .studio__title {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-block: calc(var(--nav-h) + 1rem) 4.5rem;
+  }
+  .studio__a {
+    transform: translateY(calc(var(--p) * -10vh));
+  }
+  .studio__b {
+    transform: translateY(calc(var(--p) * 10vh));
+  }
+}
+
+/* ---------- Project grid ---------- */
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(2.5rem, 5vw, 4.5rem) var(--gap);
+}
+.pgrid__item--large {
+  grid-column: span 7;
+}
+.pgrid__item--small {
+  grid-column: span 5;
+  align-self: end;
+}
+.pgrid--even {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pgrid--even .pgrid__item:nth-child(even) {
+  margin-top: clamp(0rem, 10vw, 9rem);
+}
+@media (max-width: 760px) {
+  .pgrid,
+  .pgrid--even {
+    grid-template-columns: 1fr;
+  }
+  .pgrid__item--large,
+  .pgrid__item--small {
+    grid-column: auto;
+  }
+  .pgrid--even .pgrid__item:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Services ---------- */
+.services__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+.services__head .section-title {
+  margin-bottom: 0;
+}
+.scrollwords {
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  max-width: 34ch;
+}
+.scrollwords span {
+  opacity: clamp(0.16, calc(var(--p, 0) * var(--n) * 2.1 - var(--i)), 1);
+  transition: opacity 120ms linear;
+}
+.services__statement {
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+.services__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+}
+.service__media {
+  aspect-ratio: 3 / 2;
+  margin-bottom: 1.1rem;
+}
+.service__media img {
+  transition: transform 1200ms var(--ease-out);
+}
+.service:hover .service__media img {
+  transform: scale(1.05);
+}
+.service__title {
+  font-size: var(--fs-h3);
+  margin-bottom: 0.2rem;
+}
+@media (max-width: 860px) {
+  .services__list {
+    grid-template-columns: 1fr;
+  }
+  .service__media {
+    aspect-ratio: 16 / 9;
+  }
+  .services__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .services__head .cube {
+    align-self: center;
+    margin-block: 1.5rem;
+  }
+}
+
+/* ---------- Services: animated thumbnails ---------- */
+.service__media {
+  display: grid;
+  place-items: center;
+  background: var(--c-surface);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.sthumb-wrap {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 7% 8%;
+  box-sizing: border-box;
+}
+.sthumb {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: visible;
+  --ink: var(--c-ink);
+  --line: var(--c-line);
+  --soft: color-mix(in srgb, var(--c-ink) 14%, var(--c-surface));
+}
+.sthumb-wrap--ux .sthumb { max-width: 78%; }
+
+/* Strategy: the flow draws itself, node by node, then starts over */
+.sthumb__grid line { stroke: var(--line); stroke-width: 1; }
+.sthumb__link {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: st-draw 6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: calc(var(--i) * 0.55s);
+}
+.sthumb__node circle {
+  fill: var(--c-surface);
+  stroke: var(--ink);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: st-pop 6s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+  animation-delay: calc(var(--i) * 0.55s);
+}
+.sthumb__node--end circle { fill: var(--c-accent); stroke: var(--c-accent); }
+.sthumb__tick { fill: none; stroke: var(--c-on-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; animation: st-fade 6s ease infinite; animation-delay: 2.4s; }
+@keyframes st-draw {
+  0% { stroke-dashoffset: 1; }
+  12%, 80% { stroke-dashoffset: 0; }
+  92%, 100% { stroke-dashoffset: 1; }
+}
+@keyframes st-pop {
+  0% { transform: scale(0); }
+  10%, 82% { transform: scale(1); }
+  92%, 100% { transform: scale(0); }
+}
+@keyframes st-fade {
+  0%, 5% { opacity: 0; }
+  12%, 80% { opacity: 1; }
+  90%, 100% { opacity: 0; }
+}
+
+/* UX: the screen lays itself out, then a tap fills the button */
+.sthumb__phone { fill: var(--c-bg); stroke: var(--ink); stroke-width: 2; }
+.sthumb__block {
+  fill: var(--soft);
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: st-layout 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.sthumb__block--a { animation-delay: 0.1s; }
+.sthumb__block--b { animation-delay: 0.3s; }
+.sthumb__block--c { animation-delay: 0.5s; }
+.sthumb__block--d { animation-delay: 0.65s; }
+.sthumb__block--e { fill: var(--ink); animation-name: st-layout-btn; animation-delay: 0.8s; }
+.sthumb__cursor path { fill: var(--c-bg); stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.sthumb__cursor { animation: st-cursor 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+@keyframes st-layout {
+  0% { transform: scaleX(0); opacity: 0; }
+  10%, 85% { transform: scaleX(1); opacity: 1; }
+  95%, 100% { transform: scaleX(1); opacity: 0; }
+}
+@keyframes st-layout-btn {
+  0% { transform: scaleX(0); opacity: 0; fill: var(--ink); }
+  10%, 48% { transform: scaleX(1); opacity: 1; fill: var(--ink); }
+  54%, 85% { transform: scaleX(1); opacity: 1; fill: var(--c-accent); }
+  95%, 100% { opacity: 0; }
+}
+@keyframes st-cursor {
+  0%, 25% { transform: translate(150px, 96px); opacity: 0; }
+  35% { opacity: 1; }
+  46% { transform: translate(112px, 76px) scale(1); }
+  50% { transform: translate(112px, 76px) scale(0.85); }
+  54%, 75% { transform: translate(112px, 76px) scale(1); opacity: 1; }
+  85%, 100% { transform: translate(150px, 96px); opacity: 0; }
+}
+
+/* Systems: one swatch, every component follows */
+.sthumb--systems { --tone: var(--c-accent); }
+.sthumb__swatch { fill: var(--tone); animation: st-tone 7s steps(1, end) infinite; }
+.sthumb__wire { stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.sthumb__comp > rect:first-child { fill: var(--c-bg); stroke: var(--line); stroke-width: 1.2; }
+.sthumb__inner { fill: var(--soft); }
+.sthumb__toggle { fill: var(--tone) !important; stroke: none !important; animation: st-tone 7s steps(1, end) infinite; }
+.sthumb__knob { fill: var(--c-bg); animation: st-knob 7s cubic-bezier(0.34, 1.5, 0.64, 1) infinite; }
+.sthumb__pill { fill: var(--tone); animation: st-tone 7s steps(1, end) infinite; }
+.sthumb__comp:first-of-type .sthumb__inner { fill: var(--tone); animation: st-tone 7s steps(1, end) infinite; }
+@keyframes st-tone {
+  0%, 24% { fill: #56e38b; }
+  25%, 49% { fill: #8c9dff; }
+  50%, 74% { fill: #f4b86a; }
+  75%, 100% { fill: #e98a8a; }
+}
+@keyframes st-knob {
+  0%, 20% { transform: translateX(0); }
+  25%, 45% { transform: translateX(14px); }
+  50%, 70% { transform: translateX(0); }
+  75%, 95% { transform: translateX(14px); }
+  100% { transform: translateX(0); }
+}
+
+/* Hover: a touch livelier */
+.service:hover .sthumb * { animation-duration: 3.6s; }
+.service:hover .service__media { background: color-mix(in srgb, var(--c-surface) 70%, var(--c-bg)); }
+@media (prefers-reduced-motion: reduce) {
+  .sthumb * { animation: none !important; }
+  .sthumb__link { stroke-dashoffset: 0; }
+  .sthumb__node circle { transform: none; }
+  .sthumb__block { transform: none; opacity: 1; }
+  .sthumb__cursor { opacity: 0; }
+}
+
+/* The cube's faces carry the animated thumbnails */
+.cube__face .sthumb-wrap { padding: 8% 6%; background: var(--c-surface); }
+
+/* Project grid: two equal cards per row, all the same size, no stagger */
+.pgrid,
+.pgrid--even {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem) var(--gap);
+  align-items: start;
+}
+.pgrid__item--large,
+.pgrid__item--small {
+  grid-column: auto;
+  align-self: start;
+}
+.pgrid--even .pgrid__item:nth-child(even) { margin-top: 0; }
+.pcard__media,
+.pcard--large .pcard__media {
+  aspect-ratio: 4 / 3;
+}
+@media (max-width: 760px) {
+  .pgrid,
+  .pgrid--even { grid-template-columns: 1fr; }
+}
+
+
+
+/* Clients as a compact trust strip: one small label, then the logos */
+.section.clients { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.clients__head--strip { display: block; margin-bottom: clamp(1.25rem, 2.5vw, 2rem); text-align: center; }
+.clients__label {
+  margin: 0;
+  font-family: var(--font-body, inherit);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+/* the J's idle float only runs while the section is on screen */
+.studio:not(.is-visible) .j3d__float { animation-play-state: paused; }

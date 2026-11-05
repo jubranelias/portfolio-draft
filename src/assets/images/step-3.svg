@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gstep-3" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lstep-3" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#9ac7ff"/>
+<rect y="716.8467990536057" width="1600" height="350.15320094639435" fill="#6fa9f0"/><ellipse cx="734.6518166065216" cy="728.8467990536057" rx="272" ry="26.675" fill="#000" fill-opacity=".22"/><circle cx="686.6518166065216" cy="511.4467990536057" r="213.4" fill="#ffffff"/>
+         <circle cx="974.7418166065216" cy="628.8167990536057" r="96.03" fill="#2f4bff"/>
+<rect width="100%" height="100%" fill="url(#lstep-3)"/>
+<rect width="100%" height="100%" filter="url(#gstep-3)"/>
+<text x="1572" y="1041" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="18" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

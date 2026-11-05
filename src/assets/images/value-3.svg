@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gvalue-3" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lvalue-3" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#e9e4da"/>
+<path d="M0 375 A200 375 0 0 1 200 0" fill="none" stroke="#1f6f5c" stroke-width="36"/><path d="M0 750 A200 375 0 0 1 200 375" fill="none" stroke="#f6d34a" stroke-width="36"/><rect x="20" y="787.5" width="160" height="300" rx="80" fill="#1f6f5c"/><circle cx="100" cy="1312.5" r="84" fill="#f6d34a"/><circle cx="300" cy="187.5" r="84" fill="#e46a3c"/><path d="M200 750 A200 375 0 0 1 400 375" fill="none" stroke="#f6d34a" stroke-width="36"/><circle cx="300" cy="937.5" r="84" fill="#2f4bff"/><rect x="220" y="1162.5" width="160" height="300" rx="80" fill="#f6d34a"/><circle cx="500" cy="187.5" r="84" fill="#f6d34a"/><path d="M400 750 A200 375 0 0 1 600 375" fill="none" stroke="#f6d34a" stroke-width="36"/><path d="M400 1125 A200 375 0 0 1 600 750" fill="none" stroke="#e46a3c" stroke-width="36"/><rect x="420" y="1162.5" width="160" height="300" rx="80" fill="#1f6f5c"/><rect x="620" y="37.5" width="160" height="300" rx="80" fill="#2f4bff"/><circle cx="700" cy="562.5" r="84" fill="#f6d34a"/><path d="M600 1125 A200 375 0 0 1 800 750" fill="none" stroke="#1f6f5c" stroke-width="36"/><circle cx="700" cy="1312.5" r="84" fill="#f6d34a"/><rect x="820" y="37.5" width="160" height="300" rx="80" fill="#1f6f5c"/><path d="M800 750 A200 375 0 0 1 1000 375" fill="none" stroke="#e46a3c" stroke-width="36"/><rect x="820" y="787.5" width="160" height="300" rx="80" fill="#f6d34a"/><rect x="820" y="1162.5" width="160" height="300" rx="80" fill="#e46a3c"/><rect x="1020" y="37.5" width="160" height="300" rx="80" fill="#f6d34a"/><rect x="1020" y="412.5" width="160" height="300" rx="80" fill="#2f4bff"/><rect x="1020" y="787.5" width="160" height="300" rx="80" fill="#e46a3c"/><rect x="1020" y="1162.5" width="160" height="300" rx="80" fill="#f6d34a"/>
+<rect width="100%" height="100%" fill="url(#lvalue-3)"/>
+<rect width="100%" height="100%" filter="url(#gvalue-3)"/>
+<text x="1172" y="1474" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="13" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

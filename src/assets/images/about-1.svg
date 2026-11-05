@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gabout-1" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="labout-1" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#3550d8"/>
+<rect y="678.8242622003704" width="1600" height="388.1757377996296" fill="#2a40b0"/><ellipse cx="812.5205885767937" cy="690.8242622003704" rx="272" ry="26.675" fill="#000" fill-opacity=".22"/><rect x="572.5205885767937" y="572.1242622003704" width="384" height="106.7" rx="6" fill="#5b74ff"/><rect x="618.5205885767937" y="465.4242622003704" width="320" height="106.7" rx="6" fill="#9fb0ff"/><rect x="664.5205885767937" y="358.7242622003704" width="255.99999999999997" height="106.7" rx="6" fill="#5b74ff"/>
+<rect width="100%" height="100%" fill="url(#labout-1)"/>
+<rect width="100%" height="100%" filter="url(#gabout-1)"/>
+<text x="1572" y="1041" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="18" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

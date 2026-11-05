@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gcreative-objects" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lcreative-objects" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#2bd1c4"/>
+<rect y="788.4808723255992" width="1200" height="411.5191276744008" fill="#1fb3a7"/><ellipse cx="593.3405867815018" cy="800.4808723255992" rx="204.00000000000003" ry="30" fill="#000" fill-opacity=".22"/><rect x="461.34058678150177" y="294.4808723255992" width="192" height="504" rx="96" fill="#ff5e3a"/>
+         <rect x="624.5405867815018" y="521.2808723255991" width="153.60000000000002" height="277.20000000000005" rx="76.80000000000001" fill="#f4f1ea"/>
+<rect width="100%" height="100%" fill="url(#lcreative-objects)"/>
+<rect width="100%" height="100%" filter="url(#gcreative-objects)"/>
+<text x="1172" y="1174" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="13" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

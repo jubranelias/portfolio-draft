@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" width="1800" height="1100" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gstudio-duo" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lstudio-duo" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#d9cfc1"/>
+<rect y="713.8814341984689" width="1800" height="386.1185658015311" fill="#c4b7a4"/><ellipse cx="918.1086155846715" cy="725.8814341984689" rx="306" ry="27.5" fill="#000" fill-opacity=".22"/><rect x="720.1086155846715" y="261.8814341984689" width="288" height="462" rx="144" fill="#2f4bff"/>
+         <rect x="964.9086155846715" y="469.7814341984689" width="230.4" height="254.10000000000002" rx="115.2" fill="#e46a3c"/>
+<rect width="100%" height="100%" fill="url(#lstudio-duo)"/>
+<rect width="100%" height="100%" filter="url(#gstudio-duo)"/>
+<text x="1772" y="1074" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="20" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <filter id="gvalue-2" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+  </filter>
+  <radialGradient id="lvalue-2" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="#a9d18e"/>
+<rect y="1037.9665964003652" width="1200" height="462.03340359963477" fill="#7fb563"/><ellipse cx="615.5223594903946" cy="1049.9665964003652" rx="204.00000000000003" ry="37.5" fill="#000" fill-opacity=".22"/><path d="M526.7223594903946 497.96659640036523 q0 -189 52.8 -189 q52.8 0 52.8 189" fill="none" stroke="#355e2a" stroke-width="9.6"/>
+         <path d="M459.5223594903946 497.96659640036523 h240 l14.399999999999999 540 h-268.8 z" fill="#f6f1e6"/>
+<rect width="100%" height="100%" fill="url(#lvalue-2)"/>
+<rect width="100%" height="100%" filter="url(#gvalue-2)"/>
+<text x="1172" y="1474" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="13" fill="#000" fill-opacity=".45">Placeholder image</text>
+</svg>
