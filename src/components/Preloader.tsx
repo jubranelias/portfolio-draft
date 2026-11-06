@@ -24,15 +24,15 @@ import pushSheet from '../assets/images/preloader-push.webp';
 
 export const PRELOADER = {
   /** The wall never crosses the screen faster than this (ms) */
-  minDuration: 4800,
+  minDuration: 1700,
   /** Give up waiting for slow assets after this long (ms) */
-  maxDuration: 9000,
+  maxDuration: 2500,
   /** The wordmark rises in once the wall has travelled this far (0–1) */
   nameAt: 0.72,
   /** Pause on the wordmark before the exit begins (ms) */
-  hold: 900,
+  hold: 350,
   /** Page lift duration; keep in sync with .preloader--exit in components.css (ms) */
-  exit: 1100,
+  exit: 700,
 };
 
 /** The push-cycle sprite: frame count, one frame's aspect, and stride length per cycle relative to his height. */

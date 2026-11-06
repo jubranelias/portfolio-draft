@@ -113,6 +113,7 @@ export default function Dihzahyners() {
 
       <section className="section-s" aria-label="Projects">
         <div className="container">
+          <h2 className="visually-hidden">Projects by year</h2>
           <CreativeTimeline pieces={creativeWork} />
         </div>
       </section>
@@ -160,7 +161,7 @@ function Lightbox({ items, index, onIndex }: { items: typeof creativeWork; index
           {p.video ? (
             <VideoEmbed key={p.id} provider={p.video.provider} id={p.video.id} url={p.video.url} title={p.title} poster={p.image} />
           ) : (
-            <img src={p.image} alt={p.alt} />
+            <img src={p.image} alt={p.alt} loading="lazy" decoding="async" />
           )}
           <figcaption className="lightbox__caption">
             <div>

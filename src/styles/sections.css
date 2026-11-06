@@ -273,8 +273,14 @@
   .studio__title {
     flex-direction: column;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
+    text-align: center;
     padding-block: calc(var(--nav-h) + 1rem) 4.5rem;
+  }
+  .studio__a,
+  .studio__b {
+    max-width: 9em;
+    text-align: center;
   }
   .studio__a {
     transform: translateY(calc(var(--p) * -10vh));
@@ -406,7 +412,6 @@
   --line: var(--c-line);
   --soft: color-mix(in srgb, var(--c-ink) 14%, var(--c-surface));
 }
-.sthumb-wrap--ux .sthumb { max-width: 78%; }
 
 /* Strategy: the flow draws itself, node by node, then starts over */
 .sthumb__grid line { stroke: var(--line); stroke-width: 1; }
@@ -557,3 +562,51 @@
 
 /* the J's idle float only runs while the section is on screen */
 .studio:not(.is-visible) .j3d__float { animation-play-state: paused; }
+
+
+/* ---------- Service illustrations (animated with GSAP in ServiceThumb.tsx) ---------- */
+.sthumb { --ink: var(--c-ink); --soft: color-mix(in srgb, var(--c-ink) 12%, var(--c-surface)); --paper: var(--c-bg); overflow: visible; }
+.sthumb-wrap { padding: 4% 5%; }
+.sthumb text { font-family: var(--font-display); }
+/* strategy */
+.st-ground { stroke: var(--soft); stroke-width: 2; stroke-linecap: round; }
+.st-hill { fill: var(--soft); }
+.st-route-ghost { fill: none; stroke: var(--soft); stroke-width: 2; stroke-dasharray: 4 6; stroke-linecap: round; }
+.st-route { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; }
+.st-pole { stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; }
+.st-cloth { fill: color-mix(in srgb, var(--c-ink) 30%, var(--c-surface)); }
+.st-paper rect { filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)); }
+.st-ink { stroke: rgba(20, 20, 20, 0.35); stroke-width: 2.4; stroke-linecap: round; }
+.st-tick { fill: none; stroke: #1b8a4b; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.st-pencil-body { fill: var(--ink); }
+.st-pencil-tip { fill: #ffc23d; }
+/* ux */
+.ux-phone { fill: var(--paper); stroke: var(--ink); stroke-width: 2.4; }
+.ux-bar, .ux-tip-line { fill: var(--ink); }
+.ux-tip-line--soft { fill: var(--soft); }
+.ux-hero-bg { fill: #cfe6ff; }
+.ux-sun { fill: #ffc23d; }
+.ux-hills { fill: #3fa9f5; }
+.ux-card { fill: var(--soft); }
+.ux-btn-bg { fill: var(--ink); }
+.ux-btn-label { fill: var(--c-bg); }
+.ux-ripple { fill: none; stroke: #2fbf71; stroke-width: 1.5; }
+.ux-toggle-track { fill: var(--soft); }
+.ux-toggle-knob { fill: #fff; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)); }
+.ux-tip-bg { fill: var(--c-surface); stroke: var(--c-line); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.08)); }
+.ux-spark { fill: #ffc23d; }
+.ux-spark--b { fill: #ff6b5b; }
+.ux-cursor-shape { fill: var(--ink); stroke: var(--c-surface); stroke-width: 1.5; stroke-linejoin: round; }
+/* systems */
+.sy-wire { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; opacity: 0.55; }
+.sy-ring { fill: none; stroke: var(--soft); stroke-width: 2; stroke-dasharray: 6 6; }
+.sy-swatch { fill: #2fbf71; }
+.sy-aa { fill: #0f1a12; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.sy-fill { fill: #2fbf71; }
+.sy-on-fill { fill: #0f1a12; opacity: 0.55; }
+.sy-card { fill: var(--paper); stroke: var(--c-line); stroke-width: 1.5; }
+.sy-soft { fill: var(--soft); }
+.sy-knob { fill: #fff; stroke: var(--c-line); stroke-width: 1.5; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12)); }
+.sy-check { fill: none; stroke: #2fbf71; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.service { cursor: default; -webkit-tap-highlight-color: transparent; }
+.ux-ripple { opacity: 0; }

@@ -1,5 +1,6 @@
+import type React from 'react';
 import { createPortal } from 'react-dom';
-import { useEffect, useRef, type CSSProperties } from 'react';
+import { lazy, Suspense, useEffect, useRef, type CSSProperties } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getNextProject, getProject } from '../content/projects';
@@ -7,17 +8,24 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { SplitText } from '../components/SplitText';
 import { Reveal } from '../components/Reveal';
 import NotFound from './NotFound';
-import { HisenseCaseStudy } from '../components/casestudy/HisenseCaseStudy';
-import { LimelinesCaseStudy } from '../components/casestudy/LimelinesCaseStudy';
-import { GigthreeCaseStudy } from '../components/casestudy/GigthreeCaseStudy';
-import { IConnectCaseStudy } from '../components/casestudy/IConnectCaseStudy';
-import { EMunicipalityCaseStudy } from '../components/casestudy/EMunicipalityCaseStudy';
+
+/* each case study is its own chunk, fetched only when its page opens */
+const FULL_CASES: Record<string, React.LazyExoticComponent<() => JSX.Element>> = {
+  hisesne: lazy(() => import('../components/casestudy/HisenseCaseStudy').then((m) => ({ default: m.HisenseCaseStudy }))),
+  limelines: lazy(() => import('../components/casestudy/LimelinesCaseStudy').then((m) => ({ default: m.LimelinesCaseStudy }))),
+  gigthree: lazy(() => import('../components/casestudy/GigthreeCaseStudy').then((m) => ({ default: m.GigthreeCaseStudy }))),
+  iconnect: lazy(() => import('../components/casestudy/IConnectCaseStudy').then((m) => ({ default: m.IConnectCaseStudy }))),
+  'e-municipality': lazy(() => import('../components/casestudy/EMunicipalityCaseStudy').then((m) => ({ default: m.EMunicipalityCaseStudy }))),
+  'al-hilal-bank': lazy(() => import('../components/casestudy/LockedCase').then((m) => ({ default: m.LockedCase }))),
+  tummy: lazy(() => import('../components/casestudy/TummyCaseStudy').then((m) => ({ default: m.TummyCaseStudy }))),
+};
 
 /** The project's colour as CSS variables: --pa-l on light, --pa-d on dark (the stylesheet picks one) */
-export const accentVars = (a?: [string, string]) => (a ? ({ '--pa-l': a[0], '--pa-d': a[1] } as CSSProperties) : undefined);
+export const accentVars = (a?: [string, string, string?]) =>
+  a ? ({ '--pa-l': a[0], '--pa-d': a[1], ...(a[2] ? { '--pa-v': a[2] } : {}) } as CSSProperties) : undefined;
 
 /** A thin line in the project's colour across the top of the page that fills as you read */
-function ReadProgress({ accent }: { accent?: [string, string] }) {
+function ReadProgress({ accent }: { accent?: [string, string, string?] }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf = 0;
@@ -63,14 +71,15 @@ export default function WorkDetail() {
   );
 
   // Hisense has its own full case study, built from the Figma file
-  const fullCases: Record<string, () => JSX.Element> = { hisesne: HisenseCaseStudy, limelines: LimelinesCaseStudy, gigthree: GigthreeCaseStudy, iconnect: IConnectCaseStudy, 'e-municipality': EMunicipalityCaseStudy };
-  const fullCase = fullCases[p.slug];
+  const fullCase = FULL_CASES[p.slug];
   if (fullCase) {
     const FullCase = fullCase;
     return (
       <article className="case-hisense" style={accentVars(p.accent)}>
         <ReadProgress accent={p.accent} />
-        <FullCase />
+        <Suspense fallback={<div className="case-loading" aria-busy="true" />}>
+          <FullCase />
+        </Suspense>
         {nextLink}
       </article>
     );

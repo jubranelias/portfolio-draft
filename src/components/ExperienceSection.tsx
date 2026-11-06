@@ -16,7 +16,7 @@ export function ExperienceSection() {
         <div className="xp-head">
           <p className="kicker">Beyond the portfolio</p>
           <h2 id="xp-title" className="xp-section__title">
-            Banking &amp; brokerage, under NDA
+            Brokerage, under NDA
           </h2>
           <p className="xp-section__intro">
             Nearly five years designing for online brokerage and digital banking. The work is confidential, so it isn’t shown here, but I’m happy to walk you through it privately.

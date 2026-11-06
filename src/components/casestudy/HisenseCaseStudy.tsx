@@ -104,7 +104,7 @@ export function HisenseCaseStudy() {
         </div>
       </Section>
 
-      <Section n="03" label="" title="The six flows" id="hs-flows">
+      <Section n="03" label="" title="Solution" id="hs-flows">
         {FLOWS.map((f) => (
           <div className="hs-flowblock" key={f.n}>
             <p className="hs-sublabel">{f.n}</p>

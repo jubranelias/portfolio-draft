@@ -1,6 +1,7 @@
 /**
- * Confidential industry experience (banking and brokerage), told briefly in narrative form.
- * Shown on the Work page as experience, not as case studies: the work is under NDA.
+ * Confidential industry experience, told briefly in narrative form.
+ * Shown on the Work page as experience, not as a case study: the work is under NDA.
+ * (Al Hilal Bank with Eurisko Mobility is now a password-protected project on the Work grid.)
  */
 export interface Experience {
   company: string;
@@ -21,17 +22,6 @@ export const experience: Experience[] = [
     domain: 'CFD & forex brokerage',
     story: [
       'I lead design for FP Markets’ client portal on web and mobile and its admin portal, turning dense financial data into calm, clear interfaces. Along the way I created the design system our team now relies on, and I’m currently helping shape its new social trading product.',
-    ],
-  },
-  {
-    company: 'Eurisko Mobility',
-    role: 'Senior UI/UX Designer',
-    place: 'Larnaca, Cyprus',
-    dates: 'Feb 2022 – Dec 2024',
-    domain: 'Digital banking',
-    client: 'Al Hilal Bank (ADCB Group), Abu Dhabi',
-    story: [
-      'For three years I worked on Al Hilal Bank’s mobile banking app, designing across the product and building a bilingual Arabic and English design system.',
     ],
   },
 ];

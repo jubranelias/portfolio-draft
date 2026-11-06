@@ -115,7 +115,9 @@ export const creativeIntro = {
   intro:
     'Paint Up! was founded by a team of artists under the identity Dihzahyners, to create initiatives that make Beirut brighter and more beautiful through colour. As founder and lead, I built and coordinated a team of designers, managed large-scale public interventions, and grew our online community to more than 160,000 followers.',
   /** Short line used on the home-page teaser */
-  teaserTitle: 'I also paint cities.',
+  teaserTitle: 'I also paint',
+  /** The last word of the teaser title rolls through these */
+  teaserWords: ['cities', 'walls', 'stairs', 'vans', 'chairs', 'tables'],
   teaserLine: 'Paint Up! by Dihzahyners, the urban art initiative I founded to make Beirut brighter through colour.',
 };
 

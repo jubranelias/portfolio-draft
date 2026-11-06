@@ -44,7 +44,7 @@ export function GigthreeCaseStudy() {
         />
       </Section>
 
-      <Section n="02" label="" title="Context & Problem" id="g3-context">
+      <Section n="02" label="" title="Context" id="g3-context">
         <Lead>Gigthree brings the gig-economy model to senior professional work: vetted executives and experts, on demand.</Lead>
         <Points
           items={[
@@ -59,7 +59,7 @@ export function GigthreeCaseStudy() {
         </div>
       </Section>
 
-      <Section n="03" label="" title="Exploration & Key Decisions" id="g3-exploration">
+      <Section n="03" label="" title="Decisions" id="g3-exploration">
         <Lead>Trust comes before the first match: experts pass a four-step vetting flow before they can apply to anything.</Lead>
         <Steps label="Expert vetting flow" steps={['Apply to join', 'First interview', 'Technical interview', 'Start applying to gigs']} />
         <Steps label="Client" steps={['Post gig', 'Review applicants', 'Interview', 'Hire']} />
@@ -91,7 +91,7 @@ export function GigthreeCaseStudy() {
         />
       </Section>
 
-      <Section n="04" label="" title="Final Solution" id="g3-solution">
+      <Section n="04" label="" title="Solution" id="g3-solution">
         <Lead>A marketing site with three ways in, sign-up with LinkedIn or Google, a guided profile builder, gig discovery, a community hub and a C-suite network.</Lead>
         <Shots
           items={[

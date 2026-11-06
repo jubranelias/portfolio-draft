@@ -20,10 +20,10 @@ export function SplitText({ text, as: Tag = 'h2', className = '', delay = 0, id 
     <Tag
       ref={ref}
       id={id}
-      aria-label={text}
       className={`split ${inView ? 'is-in' : ''} ${className}`}
       style={{ '--delay': `${delay}ms` } as CSSProperties}
     >
+      <span className="visually-hidden">{text}</span>
       {words.map((w, i) => (
         <Fragment key={i}>
           <span className="split__word" aria-hidden="true">

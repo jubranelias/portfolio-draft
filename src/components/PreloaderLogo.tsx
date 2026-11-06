@@ -19,16 +19,16 @@ import filmWebm from '../assets/video/jubranelias-logo.webm';
 import endFrame from '../assets/video/jubranelias-logo-end.webp';
 
 export const LOGO_INTRO = {
-  /** Playback speed of the film: 1 = as delivered (10 s); 1.35 plays it in about 7.4 s */
-  speed: 1.35,
+  /** Playback speed of the film: 1 = as delivered (10 s); 3 plays it in about 3.3 s */
+  speed: 3,
   /** The Skip link appears after this long (ms) */
-  skipAfter: 1500,
+  skipAfter: 0,
   /** Never wait longer than this, whatever happens to the video (ms) */
-  maxDuration: 13000,
+  maxDuration: 4500,
   /** How long the final frame shows when the film can't play (ms) */
-  stillDuration: 1600,
+  stillDuration: 900,
   /** Page lift duration; keep in sync with .preloader--exit (ms) */
-  exit: 1100,
+  exit: 700,
 };
 
 export function PreloaderLogo() {

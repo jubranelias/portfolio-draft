@@ -9,6 +9,8 @@ import icCover from '../assets/images/iconnect/cover.webp';
 import llCover from '../assets/images/limelines/cover.webp';
 import gigthreeCover from '../assets/images/gigthree/cover.webp';
 import emunCover from '../assets/images/emun/cover.webp';
+import alhilalCover from '../assets/images/alhilal/cover.webp';
+import tummyCover from '../assets/images/tummy/cover.webp';
 
 export interface Project {
   slug: string;
@@ -20,6 +22,8 @@ export interface Project {
   external?: { href: string; label: string };
   /** Short status shown as the card's tag instead of its types */
   status?: string;
+  /** Case study behind a password (NDA work) */
+  locked?: boolean;
   /** Everything the project covers, shown on its card; filters use these too (defaults to [category]) */
   types?: string[];
   client: string;
@@ -36,22 +40,22 @@ export interface Project {
   results: string;
   outcomes: { value: string; label: string }[];
   /** The project's own colour, used inside its case study and on its card: [on light, on dark] */
-  accent?: [string, string];
+  accent?: [string, string, string?];
 }
 
 const allProjects: Project[] = [
   {
     slug: 'hisesne',
-    accent: ['#00897B', '#3FD0BD'],
+    accent: ['#00695c', '#3FD0BD', '#00ffd1'],
     name: 'Hisense Iraq',
     summary: 'Incentive app for AC installation technicians',
     title: 'Hisense Iraq: AC Installer Incentive App',
     category: 'App',
     client: 'Hisense Middle East',
     year: '2025',
-    services: ['Brand identity', 'Art direction', 'Website'],
+    services: ['Brand identity', 'Art direction', 'Web'],
     cover: hisenseCover,
-    coverAlt: 'Three iPhones in a light studio setting showing the Hisense Iraq app: projects, home in front, and a rejected job ready to resubmit',
+    coverAlt: 'Three iPhones on a deep teal background showing the Hisense Iraq app: support chat, the home screen with points and projects, and a new project form',
     challengeTitle: 'Standing out in a crowded space',
     challenge:
       'Hisesne needed a look that felt like its own from day one, and that would hold together across the website, social and everything in between.',
@@ -72,7 +76,7 @@ const allProjects: Project[] = [
   },
   {
     slug: 'e-municipality',
-    accent: ['#1872B3', '#6CB6EC'],
+    accent: ['#15639c', '#6CB6EC', '#00b8ff'],
     name: 'e-Municipality',
     summary: 'Bilingual city services app for Jezzine Municipality',
     title: 'e-Municipality: city services in one app',
@@ -81,7 +85,29 @@ const allProjects: Project[] = [
     year: '2025',
     services: ['Product design', 'iOS and Android', 'Arabic and English'],
     cover: emunCover,
-    coverAlt: 'Three iPhones on a deep blue gradient showing the e-Municipality app: tracked requests, the home dashboard in front, and live poll results',
+    coverAlt: 'A close-up of an iPhone at an angle on a dark blue background, showing the e-Municipality home screen with Jezzine and the Get Started services',
+    challengeTitle: '',
+    challenge: '',
+    solutionTitle: '',
+    solution: '',
+    gallery: [],
+    resultsTitle: '',
+    results: '',
+    outcomes: [],
+  },
+  {
+    slug: 'al-hilal-bank',
+    accent: ['#b04707', '#ff8a45', '#ff7a00'],
+    name: 'Al Hilal Bank',
+    summary: 'Mobile banking app and bilingual design system',
+    title: 'Al Hilal Bank: mobile banking',
+    category: 'App',
+    client: 'Al Hilal Bank (ADCB Group)',
+    year: '2022 – 2024',
+    services: ['Product design', 'iOS and Android', 'Arabic and English', 'Design system'],
+    locked: true,
+    cover: alhilalCover,
+    coverAlt: 'Three iPhones on a dark surface lit in orange and pink, showing Al Hilal Bank’s Personal Finance, virtual debit card and home screens',
     challengeTitle: '',
     challenge: '',
     solutionTitle: '',
@@ -93,17 +119,17 @@ const allProjects: Project[] = [
   },
   {
     slug: 'limelines',
-    accent: ['#5E8C12', '#A6D84A'],
+    accent: ['#4a7010', '#A6D84A', '#b8ff00'],
     name: 'Limelines',
     summary: 'News app bringing MENA publishers into one feed',
     title: 'Bringing thousands of publishers to MENA readers, in one personalized feed',
     category: 'App',
-    types: ['Website', 'App', 'CMS'],
+    types: ['Web', 'App', 'CMS'],
     client: 'Limelines',
     year: '2018 – 2019',
-    services: ['Website', 'UX design', 'Development'],
+    services: ['Web', 'UX design', 'Development'],
     cover: llCover,
-    coverAlt: 'The Limelines web app on a MacBook beside two iPhones showing onboarding and Today’s Picks, on a soft green background',
+    coverAlt: 'Two iPhones and a MacBook on a dark green background, showing the Limelines app’s Today’s Picks and the web feed',
     challengeTitle: 'Too much to say, too little time to say it',
     challenge:
       'Visitors arrived with one question and had to dig through several pages to find the answer. Limelines needed a site that got people to the point quickly.',
@@ -123,17 +149,38 @@ const allProjects: Project[] = [
     ],
   },
   {
+    slug: 'tummy',
+    accent: ['#0a5457', '#4fd1c9', '#19d3c5'],
+    name: 'Tummy',
+    summary: 'Website redesign for a fresh dog food delivery brand',
+    title: 'Tummy: a fresh look for fresh dog food',
+    category: 'Web',
+    client: 'Tummy (tummy.ae)',
+    year: '2022',
+    services: ['Website redesign', 'UX improvements', 'Visual design'],
+    cover: tummyCover,
+    coverAlt: 'An iMac and an iPhone on a dark background with a warm orange glow, showing the redesigned Tummy home page and Treats page',
+    challengeTitle: '',
+    challenge: '',
+    solutionTitle: '',
+    solution: '',
+    gallery: [],
+    resultsTitle: '',
+    results: '',
+    outcomes: [],
+  },
+  {
     slug: 'gigthree',
-    accent: ['#C41E3A', '#FF7088'],
+    accent: ['#C41E3A', '#FF7088', '#ff1f6e'],
     name: 'Gigthree',
     summary: 'Platform connecting companies with vetted executives',
     title: 'Gigthree: Executive & Professional Gigs, On-Demand',
-    category: 'Website',
+    category: 'Web',
     client: 'Gigthree',
     year: '2019',
     services: ['Product design', 'iOS and Android', 'Design system'],
     cover: gigthreeCover,
-    coverAlt: 'The Gigthree site on a MacBook Pro and a tablet, on a navy-to-crimson gradient',
+    coverAlt: 'A white iPad behind a MacBook Pro on a navy background with a crimson glow, showing the Gigthree website home page',
     challengeTitle: 'Too many steps between interest and booking',
     challenge:
       'Gigthree users were dropping off partway through booking. The flow asked for too much, too early, and it was hard to tell what would happen next.',
@@ -156,17 +203,17 @@ const allProjects: Project[] = [
     // Al Jomaih iConnect: the fourth project. Only the essentials are filled in; the case study text
     // and images are still to come (see IConnectCaseStudy.tsx).
     slug: 'iconnect',
-    accent: ['#3344D6', '#8E9BFF'],
+    accent: ['#0025FF', '#7d8dff', '#0025FF'],
     name: 'Al Jomaih iConnect',
     summary: 'Employee intranet for Al Jomaih’s four companies',
     title: 'Al Jomaih iConnect: Employee Intranet Redesign',
-    category: 'Website',
-    types: ['Website', 'Design system'],
+    category: 'Web',
+    types: ['Web', 'Design system'],
     client: 'Al Jomaih Consumer Division',
     year: '',
     services: ['Information architecture', 'UI design', 'Design system'],
     cover: icCover,
-    coverAlt: 'The iConnect home dashboard tilted in 3D in front of the Applications screen, on a deep blue background, with the weather and new-hires widgets floating beside it',
+    coverAlt: 'Two browser windows on a deep blue background showing the iConnect intranet home and the My Applications page',
     challengeTitle: '',
     challenge: '',
     solutionTitle: '',

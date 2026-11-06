@@ -229,10 +229,23 @@
 
 /* Brand accents in the headline */
 .h3d__word--complex > span {
-  font-weight: 300;
-  color: var(--c-muted);
-  letter-spacing: -0.035em;
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.12em;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--c-ink);
 }
+/* tangled letters: each one slightly off-angle; hovering the headline straightens them out */
+.h3d__ch {
+  display: inline-block;
+  transform: translateY(var(--y)) rotate(var(--r));
+  transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1), color 500ms ease;
+  transition-delay: calc(var(--k, 0) * 35ms);
+}
+.h3d--awake .h3d__ch { transform: none; }
+@media (prefers-reduced-motion: reduce) { .h3d__ch { transition: none; } }
 .h3d__word--simple > span {
   color: var(--c-accent-text);
 }
@@ -245,13 +258,26 @@
   gap: clamp(2rem, 5vw, 5rem);
 }
 .h3d__row .h3d__title { flex: 1 1 auto; max-width: 62%; margin: 0; }
-.h3d__row .cube {
-  margin-right: clamp(0.5rem, 3vw, 3rem);
-  animation: h3d-up 900ms var(--ease-out) 900ms both;
-}
+.h3d__row .appicons { margin-right: clamp(0.5rem, 3vw, 3rem); }
 @media (max-width: 1100px) { .h3d__row .h3d__title { max-width: 70%; } }
 /* phones: the headline needs the full width, so the cube steps aside */
 @media (max-width: 760px) {
-  .h3d__row .cube { display: none; }
+  .h3d__row .appicons { display: none; }
   .h3d__row .h3d__title { max-width: none; }
+}
+
+/* the availability pill reads clearly in dark mode */
+:root[data-theme='dark'] .h3d__status, :root[data-theme='dark'] .h3d__avail { color: var(--c-ink); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .h3d__status, :root:not([data-theme='light']) .h3d__avail { color: var(--c-ink); } }
+
+@media (max-width: 760px) {
+  .h3d__word--complex > span { font-size: 1.04em; }
+  .h3d__row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  /* three icons as a quiet row under the headline instead of hiding them */
+  .h3d__row .appicons { display: flex; gap: 0.6rem; width: auto; height: auto; margin: 0.25rem 0 0; }
+  .h3d__row .appicon { position: static; width: 44px; transform: none; animation: none; opacity: 1; }
+  .h3d__row .appicon:nth-child(n + 4) { display: none; }
+  .h3d__row .appicon__lift { transform: none !important; }
+  .h3d__row .appicon__float { animation: none; }
+  .h3d__row .appicon__tile { transform: none; }
 }

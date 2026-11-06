@@ -68,7 +68,7 @@ export function IConnectCaseStudy() {
         />
       </Section>
 
-      <Section n="02" label="" title="Context & Problem" id="ic-context">
+      <Section n="02" label="" title="Context" id="ic-context">
         <Lead>iConnect is where every employee of ACD’s four companies starts the day, and no two of its pages worked the same way.</Lead>
         <Points
           items={[
@@ -96,7 +96,7 @@ export function IConnectCaseStudy() {
         </div>
       </Section>
 
-      <Section n="03" label="" title="Research & Insights" id="ic-research">
+      <Section n="03" label="" title="Research" id="ic-research">
         <Lead>I audited all eight modules, listed every link and widget, and regrouped the content by what employees are trying to do.</Lead>
         <div className="hs-chips">
           {['Heuristic audit', 'Content inventory', 'Task-based regrouping', 'Wireframes'].map((c) => (
@@ -113,7 +113,7 @@ export function IConnectCaseStudy() {
         <Body>No user data was available, so interviews, a tree test and an analytics baseline are planned for the rollout.</Body>
       </Section>
 
-      <Section n="04" label="" title="Exploration & Key Decisions" id="ic-exploration">
+      <Section n="04" label="" title="Decisions" id="ic-exploration">
         <Lead>Eight flat modules became five groups, never more than two levels deep.</Lead>
         <div className="hs-ia">
           {IA.map(([group, children]) => (
@@ -186,7 +186,7 @@ export function IConnectCaseStudy() {
         />
       </Section>
 
-      <Section n="05" label="" title="Final Solution" id="ic-solution">
+      <Section n="05" label="" title="Solution" id="ic-solution">
         <Lead>23 high-fidelity screens across nine modules, plus a six-step guided tour for the first visit.</Lead>
         <Shots
           items={[

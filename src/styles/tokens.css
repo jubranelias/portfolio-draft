@@ -4,19 +4,19 @@
    Every component reads from these variables.
    ================================================================== */
 :root {
-  /* Colour: light theme (default, matches the reference's soft beige) */
-  --c-bg: #ebe6dd;
-  --c-surface: #f5f2ec;
-  --c-surface-2: #e1dbd0;
+  /* Colour: light theme (default): a clean, neutral off-white */
+  --c-bg: #f3f3f2;
+  --c-surface: #ffffff;
+  --c-surface-2: #e6e6e4;
   --c-ink: #141414;
-  --c-ink-soft: #4f4b45;          /* body/description text: softer than ink, 7:1 on the background */
-  --c-muted: #5e5950;             /* 5.5:1 on the background: passes AA for small text */
+  --c-ink-soft: #4a4a47;          /* body/description text: softer than ink, 7:1 on the background */
+  --c-muted: #5d5d59;             /* 5.5:1 on the background: passes AA for small text */
   --c-accent-text: #1b8a4b;       /* green for text: 4.6:1 on the background (the bright green is for fills) */
   --c-line: rgba(20, 20, 20, 0.14);
   --c-accent: #56e38b;          /* hover fills, focus rings, small highlights */
   --c-on-accent: #0b2a17;       /* dark text on the green, for contrast */
   --c-inverse-bg: #141414;      /* buttons, footer wordmark */
-  --c-inverse-ink: #f5f2ec;
+  --c-inverse-ink: #f3f3f2;
   --c-error: #c2361f;
   --c-success: #1f7a4f;
 

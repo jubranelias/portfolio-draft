@@ -223,7 +223,7 @@ button:focus-visible .roll__track {
   inset: 0 0 auto 0;
   z-index: 50;
   padding-top: env(safe-area-inset-top, 0px);
-  transition: transform 500ms var(--ease-out), background-color 300ms;
+  transition: transform 500ms var(--ease-out), background-color 300ms, box-shadow 300ms;
   /* always its own stacking context, so the open menu (z-index -1 inside it) sits behind the bar
      but in front of the page; without this it fell behind the page until the header got a backdrop */
   isolation: isolate;
@@ -648,7 +648,7 @@ a[href^='mailto:']:not(.btn):focus-visible {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  animation: cube-spin 16s var(--ease-in-out) infinite;
+  animation: cube-spin 10s var(--ease-in-out) infinite;
 }
 .cube__face {
   position: absolute;
@@ -1080,12 +1080,12 @@ a[href^='mailto:']:not(.btn):focus-visible {
 /* Exit: the white page lifts away on a curved edge */
 .preloader--exit .preloader__panel {
   transform: translateY(calc(-100% - 20vh));
-  transition: transform 1000ms var(--ease-in-out) 100ms;
+  transition: transform 600ms var(--ease-in-out) 60ms;
   pointer-events: none;
 }
 .preloader--exit .preloader__panel::after {
   transform: scaleY(1);
-  transition: transform 700ms var(--ease-out) 100ms;
+  transition: transform 500ms var(--ease-out) 60ms;
 }
 .preloader--exit .pl-name {
   transform: translateY(-6vh);
@@ -1256,12 +1256,21 @@ html.is-preloading body {
 .nav .nav__bar {
   height: 72px;
 }
+/* frosted glass once you scroll: the page shows through, blurred and slightly cooled, with a thin
+   light edge on top and a hairline below, like a glass bar laid over the content */
 .nav--scrolled {
-  background: color-mix(in srgb, var(--c-bg) 93%, transparent);
-  backdrop-filter: saturate(1.3) blur(18px);
-  -webkit-backdrop-filter: saturate(1.3) blur(18px);
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--c-line) 70%, transparent);
+  background: color-mix(in srgb, color-mix(in srgb, var(--c-bg) 94%, #7fa6ff) 62%, transparent);
+  backdrop-filter: saturate(1.5) blur(22px);
+  -webkit-backdrop-filter: saturate(1.5) blur(22px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 1px 0 color-mix(in srgb, var(--c-line) 70%, transparent),
+    0 10px 30px -22px rgba(0, 0, 0, 0.25);
 }
+:root[data-theme='dark'] .nav--scrolled { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 0 color-mix(in srgb, var(--c-line) 70%, transparent), 0 10px 30px -22px rgba(0, 0, 0, 0.5); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .nav--scrolled { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 0 color-mix(in srgb, var(--c-line) 70%, transparent), 0 10px 30px -22px rgba(0, 0, 0, 0.5); } }
+/* browsers without backdrop blur get a solid bar instead */
+@supports not (backdrop-filter: blur(1px)) { .nav--scrolled { background: var(--c-bg); } }
 .nav .logo__mark {
   height: 28px;
 }
@@ -1946,7 +1955,16 @@ a[href^='mailto:']:not(.btn):focus-visible,
   cursor: default;
 }
 .freddo { display: inline-grid; place-items: center; color: var(--c-ink); }
-.freddo svg { overflow: visible; }
+.freddo svg { overflow: visible; transform-origin: 50% 100%; animation: freddo-sway 5.5s ease-in-out infinite; }
+/* the cup sways gently left and right, like it's being swirled */
+@keyframes freddo-sway {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-7deg); }
+  45% { transform: rotate(6deg); }
+  65% { transform: rotate(-3deg); }
+  80% { transform: rotate(2deg); }
+}
+@media (prefers-reduced-motion: reduce) { .freddo svg { animation: none; } }
 /* the drink: level drops over ~6 s (sipping), rests empty, then refills in a second and settles */
 .freddo__coffee, .freddo__ice {
   transform-box: fill-box;
@@ -2112,9 +2130,23 @@ a[href^='mailto:']:not(.btn):focus-visible,
 :root[data-theme='dark'] .client.client--logo img.client__color--light { display: none; }
 :root[data-theme='dark'] .client.client--logo img.client__color--dark { display: block; }
 
-/* the tools cube in the hero: one 3D app-icon tile per face, in each tool's brand colour */
-.cube--tools { --s: clamp(150px, 17vw, 230px); }
+/* the tools prism in the hero: five faces, each a 3D render with the tool's name over it */
+.cube--tools { --s: clamp(150px, 17vw, 230px); --apo: calc(var(--s) * 0.688); }
+.cube--tools .cube__body { animation-name: tools-spin; animation-duration: 12.5s; }
 .cube--tools:hover .cube__body { animation-play-state: paused; }
+.cube--tools .tool--0 { transform: rotateY(0deg) translateZ(var(--apo)); }
+.cube--tools .tool--1 { transform: rotateY(72deg) translateZ(var(--apo)); }
+.cube--tools .tool--2 { transform: rotateY(144deg) translateZ(var(--apo)); }
+.cube--tools .tool--3 { transform: rotateY(216deg) translateZ(var(--apo)); }
+.cube--tools .tool--4 { transform: rotateY(288deg) translateZ(var(--apo)); }
+@keyframes tools-spin {
+  0%, 14.4% { transform: rotateX(-12deg) rotateY(0deg); }
+  20%, 34.4% { transform: rotateX(-12deg) rotateY(-72deg); }
+  40%, 54.4% { transform: rotateX(-12deg) rotateY(-144deg); }
+  60%, 74.4% { transform: rotateX(-12deg) rotateY(-216deg); }
+  80%, 94.4% { transform: rotateX(-12deg) rotateY(-288deg); }
+  100% { transform: rotateX(-12deg) rotateY(-360deg); }
+}
 .tool {
   display: flex;
   flex-direction: column;
@@ -2126,33 +2158,31 @@ a[href^='mailto:']:not(.btn):focus-visible,
   box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.45);
   text-align: center;
 }
+/* the render sits small inside a glossy app-icon tile */
 .tool__icon {
-  --t: calc(var(--s) * 0.38);
-  display: grid;
-  place-items: center;
+  --t: calc(var(--s) * 0.4);
+  position: relative;
   width: var(--t);
   height: var(--t);
   margin-bottom: calc(var(--s) * 0.06);
   border-radius: 23%;
-  color: #fff;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: calc(var(--t) * 0.5);
-  letter-spacing: -0.03em;
-  /* the 3D app-icon look: glossy top light, darker lower edge, inner rim, soft drop shadow */
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 46%, rgba(0, 0, 0, 0.18)), var(--tool-bg);
+  overflow: hidden;
+  background: #232834;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -3px 0 rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
     0 calc(var(--t) * 0.08) calc(var(--t) * 0.14) -2px rgba(0, 0, 0, 0.3),
     0 calc(var(--t) * 0.2) calc(var(--t) * 0.3) calc(var(--t) * -0.1) rgba(0, 0, 0, 0.25);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
-.tool__icon img { width: 62%; height: 62%; object-fit: contain; }
-.tool__icon--figma { --tool-bg: linear-gradient(135deg, #f24e1e 0%, #a259ff 50%, #1abcfe 100%); }
-.tool__icon--claude { --tool-bg: linear-gradient(135deg, #e08a6b, #d97757 55%, #c15f3c); }
-.tool__icon--jira { --tool-bg: linear-gradient(135deg, #2684ff, #0052cc); }
-.tool__icon--slack { --tool-bg: linear-gradient(135deg, #611f69, #4a154b); }
+.tool__icon img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); }
+/* glossy top light, like an app icon */
+.tool__icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 45%);
+  pointer-events: none;
+}
 .tool__name { font-family: var(--font-display); font-weight: 600; font-size: calc(var(--s) * 0.085); letter-spacing: -0.02em; color: var(--c-ink); }
 .tool__role { font-size: calc(var(--s) * 0.058); color: var(--c-muted); }
 
@@ -2197,3 +2227,170 @@ a[href^='mailto:']:not(.btn):focus-visible,
 }
 @media (prefers-reduced-motion: reduce) { .face.is-jump::after { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .face.is-jump .face__head { animation: none; } }
+/* simple: the cut-out mark on its own, no tile, no gloss, no shadow */
+.cube--tools .tool__icon { background: none; box-shadow: none; border-radius: 0; overflow: visible; }
+.cube--tools .tool__icon::after { content: none; }
+.cube--tools .tool__icon img { object-fit: contain; transform: none; }
+
+/* Project cards on phones and small tablets: one column so nothing gets squeezed.
+   Name, then the one-line summary at full width, then the tag as a small pill underneath. */
+@media (max-width: 760px) {
+  .pcard__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding-top: 0.9rem;
+  }
+  .pcard__name {
+    font-size: clamp(1.45rem, 6.2vw, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+  .pcard__summary {
+    font-size: 1rem;
+    line-height: 1.45;
+    max-width: none;
+    text-wrap: pretty;
+  }
+  .pcard__tag {
+    order: 3;
+    align-self: flex-start;
+    margin-top: 0.4rem;
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.7rem;
+  }
+}
+
+/* ---------- Floating app icons in the hero ---------- */
+.appicons {
+  --box: clamp(230px, 24vw, 340px);
+  --mx: 0;
+  --my: 0;
+  position: relative;
+  flex-shrink: 0;
+  width: var(--box);
+  height: var(--box);
+}
+.appicon {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: calc(var(--box) * var(--sz));
+  aspect-ratio: 1;
+  /* parallax: deeper icons drift further toward the pointer */
+  transform: translate(calc(var(--mx) * var(--d) * 1px), calc(var(--my) * var(--d) * 1px));
+  outline: none;
+  z-index: calc(10 + var(--d));
+}
+.appicon { animation: appicon-fade 600ms ease calc(900ms + var(--i) * 110ms) both; }
+/* resting on the ground: dropped to the bottom of the cluster, tipped over a little more */
+.appicon__lift {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translate(calc(var(--box) * var(--gdx) / 100), calc(var(--box) * var(--gy) / 100)) rotate(calc(var(--tilt) * 1.2));
+  transition: transform 900ms cubic-bezier(0.34, 1.45, 0.64, 1);
+  transition-delay: calc(var(--i) * 70ms);
+}
+.h3d--awake .appicon__lift { transform: none; }
+.appicon__float { display: block; width: 100%; height: 100%; }
+/* floating only once lifted */
+.h3d--awake .appicon__float { animation: appicon-bob 6s ease-in-out var(--delay) infinite; }
+.h3d:not(.h3d--awake) .appicon__tile { box-shadow: 0 6px 10px -6px rgba(20, 16, 10, 0.35), 0 2px 4px -2px rgba(20, 16, 10, 0.2); }
+.h3d--awake .appicon__tile { box-shadow: 0 18px 36px -18px rgba(20, 16, 10, 0.35), 0 4px 10px -6px rgba(20, 16, 10, 0.2); }
+@keyframes appicon-fade { from { opacity: 0; } to { opacity: 1; } }
+.appicon__tile {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 24%;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  box-shadow: 0 18px 36px -18px rgba(20, 16, 10, 0.35), 0 4px 10px -6px rgba(20, 16, 10, 0.2);
+  transform: rotate(var(--tilt));
+  transition: transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 450ms ease;
+}
+.appicon__tile img { width: 64%; height: 64%; object-fit: contain; pointer-events: none; }
+.appicon:hover, .appicon:focus-visible { z-index: 60; }
+.appicon:hover .appicon__tile,
+.appicon:focus-visible .appicon__tile {
+  transform: rotate(0deg) scale(1.1);
+  box-shadow: 0 26px 46px -18px rgba(20, 16, 10, 0.45), 0 6px 14px -6px rgba(20, 16, 10, 0.25);
+}
+.appicon:focus-visible .appicon__tile { outline: 2px solid var(--c-accent); outline-offset: 3px; }
+/* label pops up under the hovered icon */
+.appicon__tip {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 10px);
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  padding: 0.4rem 0.7rem;
+  border-radius: 10px;
+  background: var(--c-ink);
+  color: var(--c-bg);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -4px);
+  transition: opacity 250ms ease, transform 250ms ease;
+  pointer-events: none;
+}
+.appicon__tip strong { font-weight: 600; font-size: 0.8125rem; }
+.appicon__tip span { opacity: 0.75; }
+.appicon:hover .appicon__tip,
+.appicon:focus-visible .appicon__tip { opacity: 1; transform: translate(-50%, 0); }
+@keyframes appicon-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-9px) rotate(1.5deg); }
+  65% { transform: translateY(4px) rotate(-1.5deg); }
+}
+@keyframes appicon-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.6); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .appicon, .h3d--awake .appicon__float { animation: none; }
+  .appicon { transform: none; }
+  .appicon__lift { transition: none; }
+}
+@media (max-width: 1100px) { .appicons { --box: clamp(200px, 26vw, 280px); } }
+
+/* the "what's next" slot: a dashed, empty app tile with a plus that keeps turning */
+.appicon__tile--next {
+  background: transparent;
+  border: 1.5px dashed color-mix(in srgb, var(--c-ink) 35%, transparent);
+  box-shadow: none !important;
+  color: var(--c-ink);
+}
+.appicon__tile--next svg {
+  width: 44%;
+  height: 44%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  animation: appicon-plus 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.appicon:hover .appicon__tile--next,
+.appicon:focus-visible .appicon__tile--next { border-color: var(--c-accent-text); color: var(--c-accent-text); }
+@keyframes appicon-plus { 0%, 70% { transform: rotate(0deg); } 85%, 100% { transform: rotate(90deg); } }
+@media (prefers-reduced-motion: reduce) { .appicon__tile--next svg { animation: none; } }
+
+.pcard__tag--locked { display: inline-flex; align-items: center; gap: 0.35rem; }
+.pcard__tag--locked svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.appicons.is-offscreen .appicon__float { animation-play-state: paused; }
+/* the clients marquee and the 3D J rest still for people who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none !important; transform: none !important; }
+  .j3d__obj, .j3d__stack--cap, .studio__j { animation: none !important; }
+}
+
+@media (hover: none), (pointer: coarse) { .pcard__cursor { display: none; } }
+/* keep the floating button clear of the Paint Up gallery's next arrow */
+body:has(.pu) .totop { bottom: calc(1.5rem + 64px + env(safe-area-inset-bottom, 0px)); }

@@ -686,10 +686,49 @@
   transform: scaleX(0);
   pointer-events: none;
 }
-/* project cards: a glow in the project's colour on hover */
-.pcard .pcard__media { transition: box-shadow 500ms var(--ease-out); }
-.pcard:hover .pcard__media,
-.pcard:focus-visible .pcard__media { box-shadow: 0 30px 60px -28px color-mix(in srgb, var(--pa) 70%, transparent); }
+/* project cards: on hover, a thin line in the project's colour travels around the image frame */
+.pcard__frame { position: relative; }
+/* the line runs exactly on the image's own edge, following its rounded corners */
+.pcard__trace {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: visible;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 450ms ease;
+}
+.pcard__trace rect {
+  x: 0.4px;
+  y: 0.4px;
+  width: calc(100% - 0.8px);
+  height: calc(100% - 0.8px);
+  rx: calc(var(--radius-m) - 0.4px);
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: var(--len) calc(100 - var(--len));
+  opacity: var(--op);
+  stroke-dashoffset: calc(var(--len) / 2 - var(--t));
+}
+/* a soft light underlay keeps the coloured line visible on any thumbnail colour */
+/* a fine fluorescent hairline in the project's neon colour: no glow, no underlay */
+.pcard__trace-line { stroke: var(--pa-v, var(--pa)); stroke-width: 0.75px; vector-effect: non-scaling-stroke; }
+.pcard:hover .pcard__trace,
+.pcard:focus-visible .pcard__trace { opacity: 1; }
+.pcard__trace { animation: pcard-trace 3.2s linear infinite; animation-play-state: paused; }
+.pcard:hover .pcard__trace,
+.pcard:focus-visible .pcard__trace { animation-play-state: running; }
+/* one shared position (--t, 0 to 100 round the frame) drives every dash, each centred on it,
+   so the layers stack into one line whose ends fade out */
+@property --t { syntax: '<number>'; inherits: true; initial-value: 0; }
+@keyframes pcard-trace { from { --t: 0; } to { --t: 100; } }
+@media (prefers-reduced-motion: reduce) {
+  .pcard__trace { animation: none; }
+  .pcard__trace rect { stroke-dasharray: none; }
+  .pcard__trace rect:not(:last-child):not(:nth-child(4)) { display: none; }
+}
 /* decorative markers inside a case study take the project's colour (buttons and links stay green) */
 .case-hisense .hs-hmw { border-left-color: var(--pa); }
 .case-hisense .hs-chip--solid { background: var(--pa); border-color: var(--pa); color: #fff; }

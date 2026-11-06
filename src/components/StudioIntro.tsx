@@ -12,7 +12,8 @@ import { LOGO_PATHS } from './Logo';
  * statement slide apart. Moving the pointer tilts it a little, like picking it up.
  * Scroll-linked, never scroll-jacked: scrolling back up plays it in reverse.
  */
-const DEPTH_LAYERS = 18;
+// fewer extrusion layers on touch devices, which tend to have weaker GPUs
+const DEPTH_LAYERS = typeof matchMedia !== 'undefined' && matchMedia('(hover: none)').matches ? 12 : 18;
 
 
 function Stack({ d, part, stackRef }: { d: string; part: 'cap' | 'body'; stackRef?: React.Ref<HTMLDivElement> }) {

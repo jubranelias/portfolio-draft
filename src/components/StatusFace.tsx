@@ -53,7 +53,7 @@ export function StatusFace() {
         setJump(true);
         window.setTimeout(() => setJump(false), 900);
         scheduleJump();
-      }, 6000 + Math.random() * 7000);
+      }, 9000 + Math.random() * 8000);
     };
     if (!reduced) scheduleJump();
     window.addEventListener('pointermove', onMove, { passive: true });

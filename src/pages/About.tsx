@@ -1,3 +1,5 @@
+import { lazy, Suspense } from 'react';
+const JourneyGlobe = lazy(() => import('../components/JourneyGlobe').then((m) => ({ default: m.JourneyGlobe })));
 import { site } from '../config/site';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { SplitText } from '../components/SplitText';
@@ -63,6 +65,10 @@ export default function About() {
           </ul>
         </div>
       </section>
+
+      <Suspense fallback={<div className="case-loading" aria-busy="true" />}>
+        <JourneyGlobe />
+      </Suspense>
 
 
 

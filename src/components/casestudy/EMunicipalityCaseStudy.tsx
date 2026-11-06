@@ -37,7 +37,7 @@ export function EMunicipalityCaseStudy() {
         <Shots items={[{ title: 'The app at a glance', caption: 'Splash, home dashboard and the municipal services catalogue', src: hero, alt: 'Three phones on blue: the Jezzine Municipality splash screen, the home dashboard and the list of municipal services' }]} />
       </Section>
 
-      <Section n="03" label="" title="Key decisions" id="em-decisions">
+      <Section n="03" label="" title="Decisions" id="em-decisions">
         <Lead>Six choices shaped the experience.</Lead>
         <Points
           items={[

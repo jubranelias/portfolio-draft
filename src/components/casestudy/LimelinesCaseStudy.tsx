@@ -44,7 +44,7 @@ export function LimelinesCaseStudy() {
         />
       </Section>
 
-      <Section n="02" label="" title="Context & Problem" id="ll-context">
+      <Section n="02" label="" title="Context" id="ll-context">
         <Lead>A region of avid readers and thousands of scattered publishers, with no single place to read the region’s news.</Lead>
         <Points
           items={[
@@ -56,7 +56,7 @@ export function LimelinesCaseStudy() {
         <Shots items={[{ title: 'On the region, from the region', caption: 'Content from the best publishers across 19 MENA countries, by what each reader cares about', src: llMainIdea, alt: 'The Limelines main idea, with publisher tiles from across the region' }]} />
       </Section>
 
-      <Section n="03" label="" title="Research & Insights" id="ll-research">
+      <Section n="03" label="" title="Research" id="ll-research">
         <Lead>We talked to readers and publishers, audited the aggregators, and watched early usage. Three things stood out.</Lead>
         <Cards
           items={[
@@ -70,7 +70,7 @@ export function LimelinesCaseStudy() {
         </More>
       </Section>
 
-      <Section n="04" label="" title="Exploration & Key Decisions" id="ll-exploration">
+      <Section n="04" label="" title="Decisions" id="ll-exploration">
         <Lead>Readers pick interests before they ever see a feed, so the very first session already feels theirs.</Lead>
         <div className="hs-steps">
           {[
@@ -125,7 +125,7 @@ export function LimelinesCaseStudy() {
         />
       </Section>
 
-      <Section n="05" label="" title="Final Solution" id="ll-solution">
+      <Section n="05" label="" title="Solution" id="ll-solution">
         <Lead>A fast, scannable feed with deep customisation: follow topics and publishers, read without distraction, share with one tap.</Lead>
         <Shots
           items={[
@@ -152,7 +152,7 @@ export function LimelinesCaseStudy() {
         />
       </Section>
 
-      <Section n="06" label="" title="Validation & Impact" id="ll-validation">
+      <Section n="06" label="" title="Outcome" id="ll-validation">
         <Lead>Moderated sessions on the onboarding and feed prototypes, then a soft launch with early readers. The question: did the first feed feel relevant enough to come back to?</Lead>
         <Points
           items={[
