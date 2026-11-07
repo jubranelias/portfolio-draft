@@ -113,7 +113,7 @@ export const creativeIntro = {
   eyebrow: 'Paint Up! · Urban art initiative',
   title: 'Dihzahyners',
   intro:
-    'Paint Up! was founded by a team of artists under the identity Dihzahyners, to create initiatives that make Beirut brighter and more beautiful through colour. As founder and lead, I built and coordinated a team of designers, managed large-scale public interventions, and grew our online community to more than 160,000 followers.',
+    'Dihzahyners is the team of artists behind Paint Up!, an initiative that made Beirut brighter through colour. I founded and led it: building the team, running large-scale public interventions, and growing a community of 160,000+ online.',
   /** Short line used on the home-page teaser */
   teaserTitle: 'I also paint',
   /** The last word of the teaser title rolls through these */
@@ -142,7 +142,7 @@ export const DIHZAHYNERS_FACEBOOK = 'https://www.facebook.com/Dihzahyners/';
 export const creativeWork: CreativePiece[] = [
   {
     id: 'paint-up-uber',
-    title: 'Paint Up meets Uber',
+    title: 'Paint Up × Uber',
     medium: 'Collaboration',
     year: '2017',
     image: dzUber,
@@ -157,7 +157,7 @@ export const creativeWork: CreativePiece[] = [
   },
   {
     id: 'paint-up-jotun',
-    title: 'Paint Up | Jotun',
+    title: 'Paint Up × Jotun',
     medium: 'Collaboration',
     year: '2019',
     image: jotunCover,
@@ -216,7 +216,7 @@ export const creativeWork: CreativePiece[] = [
   },
   {
     id: 'paint-up-bodo',
-    title: 'Paint Up meets Bodø',
+    title: 'Paint Up × Bodø',
     medium: 'Collaboration',
     year: '2012',
     image: bodoCover,
@@ -231,7 +231,7 @@ export const creativeWork: CreativePiece[] = [
   },
   {
     id: 'paint-up-aiga-karasi',
-    title: 'Paint Up | AIGA Middle East',
+    title: 'Paint Up × AIGA Middle East',
     medium: 'Exhibition',
     year: '2015',
     image: karasiPoster,
@@ -314,7 +314,7 @@ export const creativeWork: CreativePiece[] = [
   },
   {
     id: 'paint-up-nawaya',
-    title: 'Paint Up | The Nawaya Network Collaboration',
+    title: 'Paint Up × The Nawaya Network',
     medium: 'Community',
     year: '2015',
     image: nawaya[2],

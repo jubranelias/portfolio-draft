@@ -16,7 +16,7 @@ import mobile from '../../assets/images/tummy/mobile.webp';
 export function TummyCaseStudy() {
   return (
     <div className="hs">
-      <CaseHero label="Case study · Website redesign · Responsive web · 2022" title="Tummy: a fresh look for fresh dog food" intro="Health and happiness start in the Tummy. Dog food made fresh. #InDogsWeTrust" />
+      <CaseHero label="Case study · Website redesign · 2022" title="Tummy: a fresh look for fresh dog food" intro="Health and happiness start in the Tummy. Dog food made fresh. #InDogsWeTrust" />
 
       <Section n="01" label="" title="Overview" id="tm-overview">
         <Overview

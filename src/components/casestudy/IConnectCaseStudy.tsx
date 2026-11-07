@@ -55,7 +55,7 @@ const LEGACY: [string, string][] = [
 export function IConnectCaseStudy() {
   return (
     <div className="hs">
-      <CaseHero label="Case study" title="Al Jomaih iConnect: Employee Intranet Redesign" />
+      <CaseHero label="Case study · Web · Design system" title="Al Jomaih iConnect: the employee intranet, redesigned" />
 
       <Section n="01" label="" title="Overview" id="ic-overview">
         <Overview

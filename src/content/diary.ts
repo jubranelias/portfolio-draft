@@ -12,11 +12,11 @@
 import img from '../assets/images';
 
 export const diaryIntro = {
-  eyebrow: 'Visual diary',
-  title: 'Noticed',
+  eyebrow: 'Noticed along the way',
+  title: 'Diary',
   intro:
-    'Things I captured along the way. A visual diary of the things that catch my eye: everyday moments, travels, exhibitions, places I wander into and the small details I find beautiful. Same eyes I bring to product work, pointed at the world.',
-  instagramLabel: 'Follow the diary',
+    'A visual diary. Places, moments and small details that caught my eye, mostly on the road and often from above.',
+  instagramLabel: 'Follow on Instagram',
   // The page now shows the Instagram profile; the entries below are no longer displayed
 };
 

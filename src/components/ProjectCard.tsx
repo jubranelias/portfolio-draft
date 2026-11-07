@@ -3,6 +3,7 @@ import { accentVars } from '../pages/WorkDetail';
 import { typesOf } from '../content/projects';
 import { PointerEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { useSmallImages } from '../hooks/useSmallImages';
 import type { Project } from '../content/projects';
 
 /** Project thumbnail with a pill that follows the pointer. A project with `external` links out instead of to a case page. */
@@ -10,6 +11,7 @@ import type { Project } from '../content/projects';
 const TRACE: [number, number][] = [[20, 0.22], [15, 0.4], [10, 0.65], [6, 1]];
 
 export function ProjectCard({ project, size = 'large' }: { project: Project; size?: 'large' | 'small' }) {
+  const small = useSmallImages();
   const onMove = (e: PointerEvent<HTMLDivElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
     e.currentTarget.style.setProperty('--x', `${e.clientX - r.left}px`);
@@ -25,7 +27,16 @@ export function ProjectCard({ project, size = 'large' }: { project: Project; siz
         ))}
       </svg>
       <div className="pcard__media media" onPointerMove={onMove}>
-        <img src={project.cover} alt={project.coverAlt} width={1200} height={900} loading="lazy" decoding="async" />
+        <img
+          src={project.cover}
+          srcSet={small?.covers[project.slug] ? `${small.covers[project.slug]} 640w, ${project.cover} 1200w` : undefined}
+          sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
+          alt={project.coverAlt}
+          width={1200}
+          height={900}
+          loading="lazy"
+          decoding="async"
+        />
         <span className="pcard__cursor" aria-hidden="true">
           {project.external ? project.external.label : 'View case'}
         </span>

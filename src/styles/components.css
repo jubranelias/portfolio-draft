@@ -228,10 +228,12 @@ button:focus-visible .roll__track {
      but in front of the page; without this it fell behind the page until the header got a backdrop */
   isolation: isolate;
 }
-.nav--open {
+.nav.nav--open {
   background: var(--c-bg);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  box-shadow: none;
+  transform: none;
 }
 .nav--scrolled {
   background: color-mix(in srgb, var(--c-bg) 86%, transparent);
@@ -363,20 +365,31 @@ button:focus-visible .roll__track {
   top: 0;
   transform: rotate(-90deg);
 }
+/* the mobile menu is rendered on <body> (a portal), just under the header bar: a full-screen,
+   softly blurred sheet that covers the page whatever the scroll position, and fades in and out */
 .nav__menu {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  background: var(--c-bg);
+  z-index: 49;
+  background: color-mix(in srgb, var(--c-bg) 94%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
   padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 2rem);
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  animation: menu-sheet-in 320ms var(--ease-out) forwards;
 }
+@keyframes menu-sheet-in { from { opacity: 0; } to { opacity: 1; } }
 .nav__menu[hidden] {
   display: none;
 }
+@supports not (backdrop-filter: blur(1px)) { .nav__menu { background: var(--c-bg); } }
+@media (prefers-reduced-motion: reduce) { .nav__menu, .nav__menu-link { animation: none; opacity: 1; } }
 .nav__menu-links {
   display: flex;
   flex-direction: column;
@@ -2394,3 +2407,5 @@ a[href^='mailto:']:not(.btn):focus-visible,
 @media (hover: none), (pointer: coarse) { .pcard__cursor { display: none; } }
 /* keep the floating button clear of the Paint Up gallery's next arrow */
 body:has(.pu) .totop { bottom: calc(1.5rem + 64px + env(safe-area-inset-bottom, 0px)); }
+/* nothing floats over the open menu */
+body:has(.nav__menu.is-open) .totop { opacity: 0; pointer-events: none; }

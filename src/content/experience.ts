@@ -20,8 +20,6 @@ export const experience: Experience[] = [
     place: 'Limassol, Cyprus',
     dates: 'Jan 2025 – Present',
     domain: 'CFD & forex brokerage',
-    story: [
-      'I lead design for FP Markets’ client portal on web and mobile and its admin portal, turning dense financial data into calm, clear interfaces. Along the way I created the design system our team now relies on, and I’m currently helping shape its new social trading product.',
-    ],
+    story: [],
   },
 ];

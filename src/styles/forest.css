@@ -443,3 +443,16 @@
 .tree[data-stage='grow'] .tree__branch { animation: trunk-grow 900ms cubic-bezier(0.22, 1, 0.36, 1) both; transform-box: fill-box; transform-origin: 50% 100%; }
 .tree[data-stage='seed'] .tree__body,
 .tree[data-stage='sprout'] .tree__body { visibility: hidden; }
+
+
+/* ---- the section's design: the forest stands on a soft hill of ground, no frame, page colour behind ---- */
+.plant[data-variant='ground'] { background: var(--c-bg); border-top: 0; }
+.plant[data-variant='ground'] .forest { border: 0; border-radius: 0; background: transparent; height: clamp(300px, 32vw, 440px); overflow: visible; }
+/* the ground: a soft hill with a soil line, drawn inside the (now frameless, full-bleed) forest */
+.plant[data-variant='ground'] .forest {
+  background:
+    radial-gradient(130% 70% at 50% 100%, color-mix(in srgb, var(--c-accent) 18%, var(--c-bg)) 0 60%, transparent 60.5%),
+    linear-gradient(to top, color-mix(in srgb, var(--c-accent) 11%, var(--c-bg)) 0 26%, transparent 26%);
+  margin-inline: calc(var(--gutter, 1.25rem) * -1);
+  padding-inline: var(--gutter, 1.25rem);
+}

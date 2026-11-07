@@ -15,7 +15,7 @@ import { VideoEmbed } from './VideoEmbed';
 import { RichText } from './RichText';
 
 const FOUNDED = { year: 2012, label: 'Founded', detail: 'Founded by Jubran Elias & Lana Chukri on 28 April 2012' };
-const ONLINE = { year: 2020, label: 'Online only', detail: 'Moved to an online presence only, and all events paused after COVID-19' };
+const ONLINE = { year: 2020, label: 'Online since', detail: 'Moved to an online presence only, and all events paused after COVID-19' };
 
 type Item = CreativePiece & { index: number; y: number };
 

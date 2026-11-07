@@ -31,7 +31,7 @@ function Steps({ label, steps }: { label: string; steps: string[] }) {
 export function GigthreeCaseStudy() {
   return (
     <div className="hs">
-      <CaseHero label="Case study" title="Gigthree: Executive & Professional Gigs, On-Demand" />
+      <CaseHero label="Case study · Web" title="Gigthree: executive talent, on demand" />
 
       <Section n="01" label="" title="Overview" id="g3-overview">
         <Overview

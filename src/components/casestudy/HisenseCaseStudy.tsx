@@ -59,7 +59,7 @@ const FLOWS: { n: string; title: string; lead: string; text: string; shots?: [st
 export function HisenseCaseStudy() {
   return (
     <div className="hs">
-      <CaseHero label="Case study · Mobile app · iOS" title="Hisense Iraq: the installer’s companion app" />
+      <CaseHero label="Case study · Mobile app · iOS" title="Hisense Iraq: an incentive app for AC installers" />
 
       <Section n="01" label="" title="Overview" id="hs-overview">
         <Overview

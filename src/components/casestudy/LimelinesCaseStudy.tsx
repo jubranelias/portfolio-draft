@@ -31,7 +31,7 @@ import llDownload from '../../assets/images/limelines/download.webp';
 export function LimelinesCaseStudy() {
   return (
     <div className="hs">
-      <CaseHero label="Case study" title="Limelines: One Home for MENA News" />
+      <CaseHero label="Case study · Web · Mobile app · CMS" title="Limelines: one home for MENA news" />
 
       <Section n="01" label="" title="Overview" id="ll-overview">
         <Overview
@@ -150,30 +150,7 @@ export function LimelinesCaseStudy() {
             { title: 'Explore, curations & notifications', caption: 'Editing Explore, special coverage and targeted notifications', src: cmsExplore, alt: 'CMS screens for Explore, curations and notifications' },
           ]}
         />
-      </Section>
-
-      <Section n="06" label="" title="Outcome" id="ll-validation">
-        <Lead>Moderated sessions on the onboarding and feed prototypes, then a soft launch with early readers. The question: did the first feed feel relevant enough to come back to?</Lead>
-        <Points
-          items={[
-            'Interest picking felt fast; nobody dropped off once choices were capped and visual.',
-            'Readers recognised sources on cards and named them as a reason to trust the feed.',
-            'Sharing to WhatsApp was the most-used action, so share links became a first-class feature.',
-          ]}
-        />
-        <div className="hs-stats hs-stats--3">
-          {[
-            ['1,000s', 'of publishers in a single feed'],
-            ['4', 'platforms: iOS, Android, Huawei and web'],
-            ['1 tap', 'to share any story'],
-          ].map(([v, l]) => (
-            <div className="hs-stat" key={v}>
-              <p className="hs-stat__value">{v}</p>
-              <p className="hs-stat__label">{l}</p>
-            </div>
-          ))}
-        </div>
-        <Shots items={[{ title: 'Web and app, everywhere', caption: 'Topic, story, publisher and profile pages on the web, and the apps on every store', src: llDownload, alt: 'Four web pages and the App Store, Google Play and AppGallery badges' }]} />
+        <Shots items={[{ title: 'Web and app, everywhere', caption: 'Topic, story, publisher and profile pages on the web, and the apps on every store', src: llDownload, alt: 'Four Limelines web pages and the App Store, Google Play and AppGallery badges' }]} />
       </Section>
     </div>
   );

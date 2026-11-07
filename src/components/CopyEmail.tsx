@@ -4,7 +4,7 @@
  */
 import { useState } from 'react';
 
-export function CopyEmail({ email }: { email: string }) {
+export function CopyEmail({ email, compact = false }: { email: string; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
@@ -24,8 +24,8 @@ export function CopyEmail({ email }: { email: string }) {
     window.setTimeout(() => setCopied(false), 1800);
   };
   return (
-    <span className="copymail">
-      <span className="copymail__text">{email}</span>
+    <span className={`copymail${compact ? ' copymail--compact' : ''}`}>
+      {!compact && <span className="copymail__text">{email}</span>}
       <button type="button" className={`copymail__btn ${copied ? 'is-copied' : ''}`} onClick={copy} aria-label={copied ? 'Email address copied' : 'Copy email address'} title={copied ? 'Copied' : 'Copy'}>
         {copied ? (
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

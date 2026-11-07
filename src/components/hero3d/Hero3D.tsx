@@ -1,5 +1,4 @@
 import { CSSProperties, Fragment, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { WorkCube } from '../ServiceCube';
 import { site } from '../../config/site';
 import { scrollToId } from '../../lib/scroll';
@@ -96,9 +95,6 @@ export function Hero3D({ nextSectionId }: { nextSectionId: string }) {
         </div>
         <div className="h3d__ctas">
           <Button to={h.primaryCta.to}>{h.primaryCta.label}</Button>
-          <Link to={h.secondaryCta.to} className="h3d__secondary">
-            <span>{h.secondaryCta.label}</span>
-          </Link>
         </div>
       </div>
 

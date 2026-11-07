@@ -66,7 +66,7 @@ export function PlantSection() {
     : 'An empty landscape, waiting for its first tree.';
 
   return (
-    <section className="section plant" aria-labelledby="plant-title">
+    <section className="section plant" data-variant="ground" aria-labelledby="plant-title">
       <div className="container">
         <div className="plant__head">
           <h2 id="plant-title" className="section-title">Plant something</h2>

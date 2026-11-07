@@ -1,5 +1,6 @@
 import { Mail } from 'lucide-react';
 import { Fragment, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { site } from '../config/site';
 import { Logo } from './Logo';
@@ -116,7 +117,7 @@ export function Navbar() {
               >
                 {item.side && <span className="nav__spark" aria-hidden="true">✦</span>}
                 {item.side ? <span className="nav__paint">{item.label}</span> : item.label}
-                {item.side && <span className="nav__hint">urban art</span>}
+                {item.hint && <span className="nav__hint">{item.hint}</span>}
               </NavLink>
             </Fragment>
           ))}
@@ -144,7 +145,8 @@ export function Navbar() {
         </div>
       </div>
 
-      <div id="mobile-menu" ref={menuRef} className="nav__menu" hidden={!open}>
+      {createPortal(
+        <div id="mobile-menu" ref={menuRef} className={`nav__menu${open ? ' is-open' : ''}`} hidden={!open} aria-hidden={!open}>
         <nav aria-label="Mobile" className="nav__menu-links container">
           {[...site.nav, site.navCta].map((item, i) => (
             <NavLink
@@ -169,7 +171,9 @@ export function Navbar() {
             ))}
           </div>
         </div>
-      </div>
+        </div>,
+        document.body,
+      )}
     </header>
   );
 }

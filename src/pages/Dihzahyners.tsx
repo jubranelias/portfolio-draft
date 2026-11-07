@@ -78,8 +78,9 @@ export default function Dihzahyners() {
 
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
+      <section className="page-hero dz-hero">
+        <div className="container dz-hero__grid">
+          <div className="dz-hero__lead">
           <p className="eyebrow">{c.eyebrow}</p>
           <h1 className="page-hero__title">
             <SplitText as="span" text={c.title} />
@@ -100,6 +101,7 @@ export default function Dihzahyners() {
               </li>
             ))}
           </Reveal>
+          </div>
           <Reveal as="dl" className="dz-facts">
             {creativeFacts.map((f) => (
               <div key={f.label} className="dz-facts__item">

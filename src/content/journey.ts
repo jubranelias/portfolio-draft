@@ -23,7 +23,7 @@ export interface Place {
 export const journeyIntro = {
   eyebrow: 'Places that shaped me',
   title: 'A map of where I’ve lived, learned and wandered.',
-  hint: 'Drag the globe to explore. Pick a place to see the story behind it.',
+  hint: 'Drag the globe. Tap a place to find it.',
 };
 
 export const KIND_LABEL: Record<PlaceKind, string> = {
@@ -44,7 +44,7 @@ export const places: Place[] = [
   { id: 'australia', name: 'Australia', country: 'Oceania', cc: 'AU', lat: -37.81, lon: 144.96, kind: 'lived', note: 'Home for a chapter in Melbourne.' },
   { id: 'cyprus', name: 'Cyprus', country: 'Mediterranean', cc: 'CY', lat: 34.9, lon: 33.2, kind: 'lived', when: 'Now', note: 'My second home. I settled here, and it’s where I live today.' },
   // travelled
-  { id: 'spain', name: 'Spain', country: 'Europe', cc: 'ES', lat: 40.42, lon: -3.7, kind: 'travel', note: 'On stage in Madrid at TEDxCibeles, talking about redesigning the landscape.' },
+  { id: 'spain', name: 'Spain', country: 'Europe', cc: 'ES', lat: 40.42, lon: -3.7, kind: 'travel' },
   { id: 'romania', name: 'Romania', country: 'Europe', cc: 'RO', lat: 45.94, lon: 24.97, kind: 'travel' },
   { id: 'greece', name: 'Greece', country: 'Europe', cc: 'GR', lat: 39.07, lon: 21.82, kind: 'travel' },
   { id: 'netherlands', name: 'Netherlands', country: 'Europe', cc: 'NL', lat: 52.13, lon: 5.29, kind: 'travel' },

@@ -17,7 +17,7 @@ export const site = {
     /** Used as the default <title> suffix and meta description */
     seoTitle: 'Jubran Elias',
     seoDescription:
-      'Jubran Elias is a freelance product designer turning complex ideas into intuitive digital products.',
+      'Jubran Elias, product designer. Apps, platforms and design systems for fintech, SaaS and mobile, from first idea to shipped product.',
   },
 
   contact: {
@@ -43,9 +43,9 @@ export const site = {
   nav: [
     { label: 'Work', to: '/works' },
     { label: 'About', to: '/about' },
-    { label: 'Noticed', to: '/noticed' },
-    { label: 'Dihzahyners', to: '/dihzahyners', side: true },
-  ] as { label: string; to: string; side?: boolean }[],
+    { label: 'Diary', to: '/noticed' },
+    { label: 'Dihzahyners', to: '/dihzahyners', side: true, hint: 'urban art' },
+  ] as { label: string; to: string; side?: boolean; hint?: string }[],
   /** Shown when hovering the little face in the header */
   status: 'Currently designing',
   navCta: { label: 'Say hello', to: '/contact' },
@@ -77,20 +77,6 @@ export const site = {
   },
 
   home: {
-    /** The hero cycles through these lines. Keep them short. */
-    heroHeadlines: ['Products people understand', 'Flows that feel obvious', 'Systems that scale'],
-    heroIntro: 'A freelance product designer, from first idea to shipped product.',
-    heroCta: { label: 'See who I work with', href: '#clients' },
-    heroImages: [
-      { src: img.hero1, alt: 'Placeholder portrait in a grey jacket against a pale blue wall' },
-      { src: img.hero2, alt: 'Placeholder stack of printed cards on a beige set' },
-      { src: img.hero3, alt: 'Placeholder laptop showing a website on a navy backdrop' },
-      { src: img.hero4, alt: 'Placeholder product sphere on an orange set' },
-      { src: img.hero5, alt: 'Placeholder portrait against a green wall' },
-      { src: img.hero6, alt: 'Placeholder pair of phones showing an app' },
-      { src: img.hero7, alt: 'Placeholder shopping bag on green turf' },
-      { src: img.hero8, alt: 'Placeholder brand pattern of circles and arcs' },
-    ],
     clientsTitle: 'Clients',
     clientsIntro:
       'I work with founders, startups and in-house product teams, from a first idea on a napkin to products used every day.',
@@ -124,7 +110,7 @@ export const site = {
   services: [
     { title: 'Product strategy', line: 'From a fuzzy idea to a clear plan', thumb: 'strategy' as const },
     { title: 'UX & UI design', line: 'Every screen and every tap thought through', thumb: 'ux' as const },
-    { title: 'Design systems', line: 'Built to scale with your team', thumb: 'systems' as const },
+    { title: 'Design systems', line: 'One language for every screen', thumb: 'systems' as const },
   ],
 
   cta: {
@@ -143,29 +129,29 @@ export const site = {
     /** "My story" on the About page: the paragraphs and a closing line (the page title above sets the theme) */
     story: {
       paragraphs: [
-        'I’m Jubran Elias, a Product Designer focused on turning complex problems, workflows, and systems into clear, useful experiences people can actually understand and use.',
+        'I’m Jubran Elias, a Product Designer focused on turning complex problems, workflows and systems into products people can actually understand and use.',
         'I care about clarity: not only how a product looks, but how it works, what it communicates, and how easily someone can move through it.',
-        'My work is shaped by curiosity and structure. I like understanding the problem behind the screen: what people are trying to achieve, where things become confusing, what has already been tried, and where design can make a meaningful difference.',
+        'My work is shaped by curiosity and structure. I like understanding the problem behind the screen: what people are trying to achieve, where things become confusing, what has already been tried, and where design can actually help.',
         'Over the years, I’ve worked across fintech, financial services, SaaS, and mobile products, designing everything from end-to-end user flows and complex dashboards to design systems and everyday product interactions. I enjoy working on products where there’s a lot to untangle, and finding the structure that makes everything feel more intuitive.',
-        'I also believe good design is rarely about adding more. It’s about knowing what matters, removing unnecessary friction, and creating enough clarity for people to feel confident about what they’re doing.',
-        'Today, I’m especially interested in the space between product thinking, UX, UI, and design systems, creating experiences that are not only visually strong, but consistent, scalable, and built to work in the real world.',
+        'I also believe good design is rarely about adding more. It’s about knowing what matters, removing unnecessary friction, and leaving people sure of what they’re doing.',
+        'Today, I’m especially interested in the space between product thinking, UX, UI, and design systems, work that looks good, holds together across a whole product, and survives contact with real users.',
       ],
-      closing: 'For me, good design should feel clear, intentional, and effortless.',
+      closing: 'Good design, to me, is the kind you don’t notice.',
     },
     /** "A few things I’m into" on the About page: four cards, each with a small animated icon */
     interests: {
       title: 'A few things I’m into',
       items: [
-        { icon: 'travel', title: 'Travel & exploring', note: 'Curiosity has no return ticket. I travel to immerse myself deeply in other cultures, keep my plans flexible, and come back having grown a little with every trip.' },
+        { icon: 'travel', title: 'Travel & exploring', note: 'Curiosity has no return ticket. Loose plans, local food, long walks, and I come back a bit different every time.' },
         { icon: 'food', title: 'Food', note: 'Finding the best burger in town is a serious side quest. I keep an eye on Google for new places popping up, and book a pop-up dinner whenever I can.' },
         { icon: 'movies', title: 'Movies', note: 'Good stories. Big screens. Too much popcorn. Marvel and superhero films are my thing, and I’m a huge fan of anything with time travel or parallel universes.' },
-        { icon: 'photography', title: 'Photography', note: 'I create visual content with my drone and my phone, capturing places, moments and anything I find visually interesting.' },
+        { icon: 'photography', title: 'Photography', note: 'Drone and phone. Places, moments and anything that makes me stop and look.' },
       ] as { icon: 'travel' | 'food' | 'movies' | 'photography'; title: string; note: string }[],
     },
     valuesTitle: 'What I hold myself to',
     values: [
       { title: 'Quality in the details', text: 'I sweat the pixels, the copy and the edge cases, and I test with real users before calling anything done.', image: img.value1 },
-      { title: 'Experiences, not screens', text: 'I design how something feels to use, not only how it looks in a screenshot.', image: img.value2 },
+      { title: 'How it feels, not just how it looks', text: 'I design how something feels to use, not only how it looks in a screenshot.', image: img.value2 },
       { title: 'A real partnership', text: 'I take on a handful of clients at a time, so each one gets my full attention.', image: img.value3 },
     ],
   },
@@ -173,7 +159,7 @@ export const site = {
   contactPage: {
     title: 'Say hello',
     intro: 'Have a product that needs untangling, or just want to say hi?',
-    faqTitle: 'Frequently asked questions',
+    faqTitle: 'Good to know',
     faqs: [
       { q: 'How much does a project cost?', a: 'Every project is different, so I don’t sell fixed packages. After a short first call, I send a clear, fixed quote based on your scope, so there are no surprises.' },
       { q: 'How long does a typical project take?', a: 'It depends on the scope. A focused UX review can take a couple of weeks, while a new product from discovery to handoff usually takes a few months. You’ll get a week-by-week plan before we start.' },
@@ -183,7 +169,7 @@ export const site = {
   },
 
   footer: {
-    note: 'Freelance product designer turning complex ideas into intuitive digital products.',
+    note: 'Product designer in Limassol, Cyprus. Working with teams anywhere.',
     credits: [] as { label: string; href: string }[],
   },
 };

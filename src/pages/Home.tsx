@@ -20,7 +20,7 @@ export default function Home() {
 
       <section id="clients" className="section clients" aria-labelledby="clients-title">
         <div className="container clients__head clients__head--strip">
-          <h2 id="clients-title" className="clients__label">Trusted by teams at</h2>
+          <h2 id="clients-title" className="clients__label">Worked with</h2>
         </div>
         <ClientMarquee />
       </section>

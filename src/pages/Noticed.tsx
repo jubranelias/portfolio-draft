@@ -4,18 +4,17 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { SplitText } from '../components/SplitText';
 import { Reveal } from '../components/Reveal';
 import { Button } from '../components/Button';
-import { InstagramEmbed } from '../components/InstagramEmbed';
+import { PhotoGrid } from '../components/PhotoGrid';
+import { photos } from '../content/noticed';
 
 /**
- * Noticed: the visual diary. The photos live on Instagram (@jubranelias), so the page shows the
- * profile's latest posts there, with the intro and a follow link around it.
+ * Noticed: the visual diary. A curated, self-hosted photo grid (src/content/noticed.ts) gives a
+ * glimpse of the photography; the rest lives on Instagram (@jubranelias), linked above and below.
  */
-/** The diary now lives on Instagram; the page shows the profile there. */
-const INSTAGRAM_HANDLE = 'jubranelias';
 
 export default function Noticed() {
   const c = diaryIntro;
-  useDocumentMeta(c.title, 'Noticed: a visual diary by Jubran Elias of everyday moments, travels, exhibitions and places.');
+  useDocumentMeta(c.title, 'Diary: a visual diary by Jubran Elias. Places, moments and small details, mostly on the road and often from above.');
   const instagram = site.socials.find((s) => s.icon === 'instagram')?.href;
 
   return (
@@ -35,9 +34,14 @@ export default function Noticed() {
         </div>
       </section>
 
-      <section className="section-s" aria-label="Instagram">
+      <section className="section-s noticed-grid" aria-label="Photos">
         <div className="container">
-          <InstagramEmbed handle={INSTAGRAM_HANDLE} />
+          <PhotoGrid photos={photos} />
+          {instagram && (
+            <div className="noticed-grid__more">
+              <Button href={instagram}>More on Instagram</Button>
+            </div>
+          )}
         </div>
       </section>
 

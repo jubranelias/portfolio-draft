@@ -49,7 +49,7 @@ const allProjects: Project[] = [
     accent: ['#00695c', '#3FD0BD', '#00ffd1'],
     name: 'Hisense Iraq',
     summary: 'Incentive app for AC installation technicians',
-    title: 'Hisense Iraq: AC Installer Incentive App',
+    title: 'Hisense Iraq: an incentive app for AC installers',
     category: 'App',
     client: 'Hisense Middle East',
     year: '2025',
@@ -122,7 +122,7 @@ const allProjects: Project[] = [
     accent: ['#4a7010', '#A6D84A', '#b8ff00'],
     name: 'Limelines',
     summary: 'News app bringing MENA publishers into one feed',
-    title: 'Bringing thousands of publishers to MENA readers, in one personalized feed',
+    title: 'Limelines: one home for MENA news',
     category: 'App',
     types: ['Web', 'App', 'CMS'],
     client: 'Limelines',
@@ -159,7 +159,7 @@ const allProjects: Project[] = [
     year: '2022',
     services: ['Website redesign', 'UX improvements', 'Visual design'],
     cover: tummyCover,
-    coverAlt: 'An iMac and an iPhone on a dark background with a warm orange glow, showing the redesigned Tummy home page and Treats page',
+    coverAlt: 'An iMac and an iPhone on a black glass desk, reflected in its surface, against a dark background with a warm orange glow, showing the redesigned Tummy home page and Treats page',
     challengeTitle: '',
     challenge: '',
     solutionTitle: '',
@@ -174,7 +174,7 @@ const allProjects: Project[] = [
     accent: ['#C41E3A', '#FF7088', '#ff1f6e'],
     name: 'Gigthree',
     summary: 'Platform connecting companies with vetted executives',
-    title: 'Gigthree: Executive & Professional Gigs, On-Demand',
+    title: 'Gigthree: executive talent, on demand',
     category: 'Web',
     client: 'Gigthree',
     year: '2019',
@@ -206,14 +206,14 @@ const allProjects: Project[] = [
     accent: ['#0025FF', '#7d8dff', '#0025FF'],
     name: 'Al Jomaih iConnect',
     summary: 'Employee intranet for Al Jomaih’s four companies',
-    title: 'Al Jomaih iConnect: Employee Intranet Redesign',
+    title: 'Al Jomaih iConnect: the employee intranet, redesigned',
     category: 'Web',
     types: ['Web', 'Design system'],
     client: 'Al Jomaih Consumer Division',
     year: '',
     services: ['Information architecture', 'UI design', 'Design system'],
     cover: icCover,
-    coverAlt: 'Two browser windows on a deep blue background showing the iConnect intranet home and the My Applications page',
+    coverAlt: 'Hands holding an iPad against a deep blue background, showing the iConnect intranet’s My Applications page',
     challengeTitle: '',
     challenge: '',
     solutionTitle: '',
@@ -226,7 +226,7 @@ const allProjects: Project[] = [
 ];
 
 /** The order projects appear in everywhere (Work page, home page, "next project" links) */
-const ORDER = ['iconnect', 'hisesne', 'limelines', 'gigthree'];
+const ORDER = ['iconnect', 'hisesne', 'e-municipality', 'al-hilal-bank', 'limelines', 'gigthree', 'tummy'];
 /** The types a project covers */
 export const typesOf = (p: Project) => p.types ?? [p.category];
 
